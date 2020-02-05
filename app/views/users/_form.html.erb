@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :email, input_html: { autocomplete: 'email' } %>
+  <%= f.input :password, input_html: { autocomplete: 'password' } %>
+  <%= f.input :password_confirmation, input_html: { autocomplete: 'password_confirmation' } %>
+  <%= f.button :submit, yield(:button_text), class: "btn-outline-primary" %>
+<% end %>
