@@ -1,0 +1,14 @@
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <h5>Sign Up</h5>
+    <hr>
+    <%= simple_form_for @user do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name %>
+      <%= f.input :email, input_html: { autocomplete: 'email' } %>
+      <%= f.input :password, input_html: { autocomplete: 'password' } %>
+      <%= f.input :password_confirmation, input_html: { autocomplete: 'password_confirmation' } %>
+      <%= f.button :submit,'Sign Up', class: "btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>
