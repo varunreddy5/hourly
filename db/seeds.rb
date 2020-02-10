@@ -14,3 +14,9 @@ User.create!(name: "foobar", email: "foobar@example.com", password: "varun2@7", 
   password = "password"
   User.create!(name: name, email: email, password: password, password_confirmation: password)
 end
+
+users = User.order(:created_at).take(10)
+50.times do |p|
+  content = Faker::Lorem.sentence(word_count: 15)
+  users.each{ |user| user.posts.create!(content: content)}
+end

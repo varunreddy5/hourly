@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.order(:created_at).paginate(page: params[:page])
   end
   def new
     @user = User.new
@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page])
+    @post = @user.posts.build
   end
 
   def edit
@@ -44,13 +46,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please Login"
-      redirect_to login_path
-    end
-  end
+  
 
   def correct_user
     @user = User.find(params[:id])

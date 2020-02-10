@@ -1,0 +1,5 @@
+<%= simple_form_for @post, remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content %>
+  <%= f.button :submit, "Create", class: "btn-outline-primary", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
+<% end %>

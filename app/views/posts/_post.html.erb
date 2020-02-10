@@ -1,0 +1,13 @@
+<div class="col-md-12 mt-3" id = "post-<% post.id %>">
+  <div class="card">
+    <div class="card-body">
+      <p>
+        <span class="name"><b><%= post.user.name %></b></span>
+        <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at)%> ago</small></span>
+      </p>
+      <p><%= post.content %></p>
+      <div class="icons">
+      </div>
+    </div>
+  </div>
+</div>
