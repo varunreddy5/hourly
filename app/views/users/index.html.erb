@@ -1,0 +1,5 @@
+<% provide(:title, "All Users") %>
+<div class="row mt-5">
+  <%= render @users %>
+</div>
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
