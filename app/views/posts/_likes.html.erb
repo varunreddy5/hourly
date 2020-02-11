@@ -1,0 +1,10 @@
+<span><%= post.likes.count %></span>
+<% if logged_in? && already_liked?(post, current_user) %>
+  <%= link_to  post_likes_path(post), method: :delete, remote: true  do%>
+    <i class="fa fa-heart like" aria-hidden="true"></i>
+  <% end %>
+<% else %>
+  <%= link_to post_likes_path(post), method: :post, remote: true do%>
+    <i class="fa fa-heart unlike" aria-hidden="true"></i>
+  <% end %>
+<% end %>

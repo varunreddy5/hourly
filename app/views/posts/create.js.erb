@@ -1,2 +1,3 @@
-document.querySelector("#posts").insertAdjacentHTML("afterBegin", "<%=j render @post %>");
-document.querySelector("#post_content").value = "";
+
+$("#posts").prepend("<%=j render @post %>");
+$("#post_content").val('');

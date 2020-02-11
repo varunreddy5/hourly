@@ -3,10 +3,13 @@
     <div class="card-body">
       <p>
         <span class="name"><b><%= post.user.name %></b></span>
-        <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at)%> ago</small></span>
+        <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at) %> ago</small></span>
       </p>
       <p><%= post.content %></p>
       <div class="icons">
+        <div id="post_likes_<%=post.id%>">
+          <%= render partial: 'posts/likes', locals: { post: post} %>
+        </div>
       </div>
     </div>
   </div>
