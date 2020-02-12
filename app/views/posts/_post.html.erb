@@ -1,14 +1,22 @@
-<div class="col-md-12 mt-3" id = "post-<% post.id %>">
+<div class="col-md-12 mt-3" id = "post-<%= post.id %>">
   <div class="card">
     <div class="card-body">
       <p>
-        <span class="name"><b><%= post.user.name %></b></span>
+        <span class="name"><b><%= link_to  post.user.name, user_path(post.user) %></b></span>
         <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at) %> ago</small></span>
       </p>
-      <p><%= post.content %></p>
-      <div class="icons">
-        <div id="post_likes_<%=post.id%>">
-          <%= render partial: 'posts/likes', locals: { post: post} %>
+      <p><%= truncate( post.content, :length => 300, :separator => ' ') %></p>
+      <div class="row">
+        <div class="col-md-2 offset-md-1">
+          <div id="post_likes_<%=post.id%>" class="likes">
+            <%= render partial: 'posts/likes', locals: { post: post} %>
+          </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <%= render partial: 'posts/delete', locals: { post: post} %>
         </div>
       </div>
     </div>

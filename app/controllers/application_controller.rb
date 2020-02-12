@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ActionController::Live
+
   protect_from_forgery with: :exception
   include SessionsHelper
   

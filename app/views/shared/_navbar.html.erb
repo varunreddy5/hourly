@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Hourly</a>
+  <%= link_to  "Hourly", posts_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'Home', users_path, class: "nav-link" %>
+        <%= link_to 'Home', posts_path, class: "nav-link" %>
       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto right-nav">
       <% if logged_in? %>
         <li class="nav-item">
           <%= link_to @current_user.name, @current_user, class: "nav-link" %>
@@ -17,7 +19,6 @@
             Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
             <%= link_to 'Settings', edit_user_path(@current_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Logout', logout_path, method: :delete, class: 'dropdown-item' %>
