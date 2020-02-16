@@ -1,22 +1,36 @@
-<div class="col-md-12 mt-3" id = "post-<%= post.id %>">
+<div class="col-md-12 mt-3" id = "post-<%= post.id %>" data-controller="reply">
   <div class="card">
     <div class="card-body">
       <p>
         <span class="name"><b><%= link_to  post.user.name, user_path(post.user) %></b></span>
         <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at) %> ago</small></span>
       </p>
-      <p><%= truncate( post.content, :length => 300, :separator => ' ') %></p>
+      <p><%= post.content %></p>
       <div class="row">
         <div class="col-md-2 offset-md-1">
           <div id="post_likes_<%=post.id%>" class="likes">
             <%= render partial: 'posts/likes', locals: { post: post} %>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2 offset-md-2">
+          <div id="post-comments-<%= post.id %>">
+            <%= link_to  "Comment", '#', data: { action: 'click->reply#show'} %>
+          </div>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-2">
+        </div>
         <div class="col-md-3">
           <%= render partial: 'posts/delete', locals: { post: post} %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <%= render partial: "comments/form", locals: { commentable: post, class: 'd-none', target: 'reply.form'} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render post.comments.where(parent_id: nil) %>
         </div>
       </div>
     </div>

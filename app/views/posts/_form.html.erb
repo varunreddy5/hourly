@@ -1,5 +1,5 @@
 <%= simple_form_for @post, remote: true do |f| %>
   <%= f.error_notification %>
-  <%= f.input :content %>
-  <%= f.button :submit, "Create", class: "btn-outline-primary", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
+  <%= f.rich_text_area :content %>
+  <%= f.button :submit, "Create", class: "btn-outline-primary mt-3", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
 <% end %>

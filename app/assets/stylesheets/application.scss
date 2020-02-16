@@ -1,12 +1,24 @@
+//= require actiontext
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'users';
 @import 'posts';
 
+.modal-dialog {
+  position: relative;
+  display: table; /* This is important */
+  overflow-y: auto;
+  overflow-x: auto;
+  width: auto;
+  min-width: 300px;
+}
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 .right-nav {
   margin-right: 8em;
+}
+a {
+  text-decoration: none !important;
 }
