@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user
+  # before_action :logged_in_user
   before_action :correct_user, only: [:edit, :update]
 
   def index
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to hourly!"
-      redirect_back_or @user
+      redirect_to @user
     else
       render 'new'
     end
@@ -38,6 +38,22 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'edit'
+    end
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.following
+    respond_to do |format|
+      format.js
     end
   end
 

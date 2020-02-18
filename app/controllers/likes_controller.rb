@@ -3,17 +3,20 @@ class LikesController < ApplicationController
   before_action :find_post
   def create
     @like = @post.likes.build(user: current_user)
-    respond_to do |format|
+    
       if @like.save
-        # format.html{
-        #   redirect_to root_path
-        # }
-        format.js
+        respond_to do |format|
+        format.html{
+          redirect_to root_path
+        }
+          format.js
+        end
       else
-        format.html{ render current_user}
-        format.js{ render layout: false}
+        respond_to do |format|
+          format.html{ render current_user}
+          format.js{ render layout: false}
+        end
       end
-    end
   end
 
   def destroy

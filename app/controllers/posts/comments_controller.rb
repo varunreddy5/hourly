@@ -1,4 +1,5 @@
 class Posts::CommentsController < CommentsController
+  before_action :logged_in_user
   before_action :set_commentable
 
   private 

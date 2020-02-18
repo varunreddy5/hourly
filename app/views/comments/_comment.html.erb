@@ -8,7 +8,7 @@
     <p class="mt-2" id="comment-body"><%= comment.body %></p>
     <div data-controller = 'reply'>
       <%= link_to  "Reply", '#', data: { action: 'click->reply#show'} %>
-      <%= link_to "Delete", [comment.commentable, comment], method: :delete,remote: true, class:"ml-4", data: { confirm: "Are you sure?" } if comment.user == current_user%>
+      <%= link_to "Delete", [comment.commentable, comment], method: :delete, remote: true, class:"ml-4", data: { confirm: "Are you sure?" } if comment.user == current_user%>
       <div class="col-md-12 mt-3">
         <%= render partial: "comments/form", locals: { 
         commentable: comment.commentable, 
