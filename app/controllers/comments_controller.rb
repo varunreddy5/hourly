@@ -4,9 +4,22 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path }
+        format.js{ render layout: false}
+      end
     else
       redirect_to users_path
+    end
+  end
+  
+  def destroy
+    @comment = @commentable.comments.find(params[:id])
+    if @comment.destroy
+      respond_to do |format|
+        format.html {redirect_to root_path }
+        format.js{ render layout: false}
+      end
     end
   end
 
