@@ -1,5 +1,5 @@
 <% if current_user.following?(@user)%>
-  <%= render 'unfollow'%>
+  <%= render partial: 'unfollow', locals: { user: @user }%>
 <% else %>
-  <%= render 'follow' %>
+  <%= render partial: 'follow', locals: { user: @user } %>
 <% end %>

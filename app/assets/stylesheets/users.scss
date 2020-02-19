@@ -1,6 +1,24 @@
-.followers,
-.following,
-.tweet,
-.follow {
-  margin: 0 0 0 100px;
+// .followers,
+// .following,
+// .tweet,
+// .follow {
+//   margin: 0 0 0 100px;
+// }
+#stats,
+#followers-content,
+#following-content {
+  display: inline;
+  margin: 0 50px;
+}
+.follow-unfollow {
+  display: inline;
+  form {
+    display: inline;
+  }
+}
+.modal-button {
+  float: right;
+}
+.usernames {
+  margin-bottom: 40px;
 }

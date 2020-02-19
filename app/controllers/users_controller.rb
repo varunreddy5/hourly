@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   def following
     @user  = User.find(params[:id])
     @users = @user.following
+    
     respond_to do |format|
       format.js
     end

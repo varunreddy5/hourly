@@ -1,2 +1,2 @@
-$('#followers-content').append("<%=j render partial: 'users/followers_modal'%>")
-$('#followersModal').modal('toggle');
+$('#followers-content').html('<%=j render partial: 'users/followers_modal', locals: { users: @users, label: "Followers"}%>')
+$('#followersModal').modal('show');

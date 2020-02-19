@@ -3,6 +3,13 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order(created_at: :desc).paginate(page: params[:page])
   end
+
+  def activity_feed
+    
+    @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where(user_id: [current_user, current_user.following.pluck(:id)])
+    render 'activity_feed'
+  end
+
   def create
     @post = current_user.posts.build(post_params)
 

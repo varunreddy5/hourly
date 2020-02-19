@@ -1,2 +1,2 @@
 $('#followers').html("<%=j @user.followers.count %>")
-$('#follow-unfollow').html("<%=j render 'users/unfollow' %>")
+$('#follow-unfollow-<%= @user.id %>').html("<%=j render 'users/unfollow' %>")

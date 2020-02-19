@@ -1,3 +1,11 @@
-<div class="col-md-12">
-  <%= link_to  user.name, user_path(user) %>
-</div>
+<% @user = user%>
+<% if @user != current_user%>
+  <div class="col-md-12 usernames">
+    <%= link_to  user.name, user_path(@user) %>
+    <% if @user != current_user%>
+      <div id = "follow-unfollow-<%= @user.id %>" class="modal-button">
+        <%= render partial: 'follow_form', object: @user %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
