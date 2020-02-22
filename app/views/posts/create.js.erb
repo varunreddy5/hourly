@@ -1,2 +1,3 @@
+$("#post-count-<%=@user.id %>").html("<%=j @user.posts.count %>");
 $("#posts").prepend("<%=j render @post %>");
 $("#post_content").val('');

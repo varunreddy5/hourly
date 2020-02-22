@@ -1,5 +1,8 @@
 <div id="stats">
   <% @user ||= current_user %>
+  <div class="post-count">
+    <strong id="post-count-<%=@user.id %>"><%= @user.posts.count %></strong> Posts
+  </div>
   <%= link_to followers_user_path(@user), class: "followers", remote: true do %>
     <strong id="followers-<%=@user.id %>"><%= @user.followers.count %></strong>
     Followers
