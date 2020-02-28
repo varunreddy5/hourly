@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :logged_in_user
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :index, :show]
 
   def index
     @users = User.order(:created_at).paginate(page: params[:page])
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
+      remember user 
       flash[:success] = "Welcome to hourly!"
       redirect_to @user
     else
