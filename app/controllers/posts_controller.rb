@@ -13,6 +13,9 @@ class PostsController < ApplicationController
     @user = @post.user
     respond_to do |format|
       if @post.save
+        @post.user.followers.each do |user|
+          Notification.create(recipient_id: user.id, user: current_user, action: "posted", notifiable: @post)
+        end
         format.html{ 
           flash[:success] = "Posted Successfully!" 
           redirect_to current_user 

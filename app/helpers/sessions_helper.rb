@@ -10,6 +10,7 @@ module SessionsHelper
     #                       expires: 20.years.from_now.utc}
     # short hand form of above 
     cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
   end
 
   def current_user
@@ -21,7 +22,6 @@ module SessionsHelper
         log_in user
         @current_user = user
       end
-
     end
   end
 
@@ -34,7 +34,6 @@ module SessionsHelper
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
-
   end
 
   def log_out
@@ -42,11 +41,13 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
   #Redirects to stored location or default
   def redirect_back_or(user)
     redirect_to(session[:forwarding_url] || user) # user or default
     session.delete(:forwarding_url)
   end
+
   #Stores the URL trying to be accessed
   def store_location
     session[:forwarding_url] = request.original_url if request.get?

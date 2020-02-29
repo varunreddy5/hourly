@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     @like = @post.likes.build(user: current_user)
     
       if @like.save
+        Notification.create(recipient_id: @post.user.id, user: @like.user, action: "liked", notifiable: @like)
         respond_to do |format|
         format.html{
           redirect_to root_path
