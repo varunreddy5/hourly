@@ -15,5 +15,10 @@ Rails.application.routes.draw do
       resources :comments, module: :posts
     end
     resources :relationships, only: [:create, :destroy]
+    resources :notifications do
+      collection do
+        post :mark_as_read
+      end
+    end
   end
 end
