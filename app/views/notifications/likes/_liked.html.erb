@@ -2,5 +2,6 @@
   <%= link_to post_path(notification.notifiable.post_id), class: "dropdown-item #{"unread" if !notification.read_at? }" do %>
     <%= notification.user.name %>
     <%= notification.action %>
+    your post
   <% end %>
 <% end %>

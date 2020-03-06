@@ -1,2 +1,2 @@
-$("#post-count-<%=@user.id %>").html("<%=j @user.posts.count %>");
+$("#post-count-<%=current_user.id %>").html("<%=j current_user.posts.count %>");
 $("#post-<%= @post.id%>").remove();

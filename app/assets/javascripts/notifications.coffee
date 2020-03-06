@@ -1,38 +1,56 @@
-# class Notifications
-#   constructor: ->
-#     @notifications = $("[data-behavior = 'notifications']")
-#     @setup() if @notifications.length > 0
+class Notifications
+  constructor: ->
+    @notifications = $("[data-behavior = 'notifications']")
+    @setup() if @notifications.length > 0
   
-#   setup: ->
-#     $("[data-behavior='notifications-link']").on "click", (event) =>
-      
-#       $.ajax(
-#         url: "/notifications/mark_as_read"
-#         dataType: "JSON"
-#         method: "POST"
-#         beforeSend: (xhr) -> 
-#           xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-#         success: ->
-#           $("[data-behavior='unread-count']").text(0)
-#       )
-#     $.ajax(
-#       url: "/notifications.json"
-#       dataType: "JSON"
-#       method: "GET"
-#       success: (data) =>
+  setup: ->
+    $.ajax(
+      url: "/notifications.json"
+      dataType: "JSON"
+      method: "GET"
+      success: (data) =>
+        items = $.map data, (notification) -> 
+          notification.template if notification.notifiable != null
+        unread_count = 0
+        $.each data, (notification) ->
+          if notification.unread
+            unread_count += 1
         
-#         items = $.map data, (notification) -> 
-#           "<a class='dropdown-item' href='#'>#{notification.user} #{notification.action}</a>"
-#         $("[data-behavior='unread-count']").text(items.length)
-#         if items.length == 0
-#           $("[data-behavior='notification-items']").html("<div>No new notifications</div>")
-#         else
-#           $("[data-behavior='notification-items']").html(items)
-        
-#     )
+        $("[data-behavior='unread-count']").text(unread_count);
+        $("[data-behavior='notification-items']").html(items);
+    )
 
+    $("[data-behavior='notifications-link']").on "click", (event) =>
+      # console.log("click")
+      # $.ajax(
+      #   url: "/notifications.json"
+      #   dataType: "JSON"
+      #   method: "GET"
+      #   success: (data) =>
+      #     items = $.map data, (notification) -> 
+      #       notification.template if notification.notifiable != null
+      #     unread_count = 0
+      #     $.each data, (notification) ->
+      #       if notification.unread
+      #         unread_count += 1
+          
+      #     $("[data-behavior='unread-count']").text(unread_count);
+      #     $("[data-behavior='notification-items']").html(items);
+      # )
+      $.ajax(
+        url: "/notifications/mark_as_read"
+        dataType: "JSON"
+        method: "POST"
+        beforeSend: (xhr) -> 
+          xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        success: ->
+          $("[data-behavior='unread-count']").text(0)
+          
+      )
 
-   
 
 # jQuery -> 
 #   new Notifications
+
+$(document).on "turbolinks:load", ->
+  new Notifications

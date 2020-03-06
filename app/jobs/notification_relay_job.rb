@@ -2,7 +2,7 @@ class NotificationRelayJob < ApplicationJob
   queue_as :default
 
   def perform(notification)
-    html = ApplicationController.render partial:'notifications/posts/posted', locals: {notification: notification }, format: [:html]
+    html = ApplicationController.render partial:"notifications/#{notification.notifiable_type.underscore.pluralize}/#{notification.action}", locals: {notification: notification }, formats: [:html]
     ActionCable.server.broadcast "notifications:#{notification.recipient_id}", html: html, count: Notification.where(recipient: notification.recipient, read_at: nil).count
   end
 end

@@ -1,14 +1,10 @@
 App.notifications = App.cable.subscriptions.create('NotificationsChannel', {
   connected: function() {
-    console.log('connected');
-    // $("[data-behavior='unread-count']").text(data.count);
-    // Called when the subscription is ready for use on the server
-    getNotifications();
+    // getNotificationsData();
     $("[data-behavior='notifications-link']").on('click', function(event) {
-      read = getNotifications();
-      if (read) {
-        postUnReadNotifications();
-      }
+      console.log('clicked');
+      // getNotificationsData();
+      // postUnreadNotifications();
     });
   },
 
@@ -18,55 +14,47 @@ App.notifications = App.cable.subscriptions.create('NotificationsChannel', {
 
   received: function(data) {
     $("[data-behavior='unread-count']").text(data.count);
-    // $("[data-behavior='notification-items']").prepend(data.html);
-    // $("[data-behavior='notifications-link']").on('click', function(event) {
-    //   getNotifications();
-    //   postUnReadNotifications();
-    // });
+    $("[data-behavior='notification-items']").prepend(data.html);
   }
 });
 
-function getNotifications() {
-  $.ajax({
-    url: '/notifications.json',
-    dataType: 'JSON',
-    method: 'GET',
-    success: function(data) {
-      $("[data-behavior='unread-count']").text(data.length);
-      items = $.map(data, function(notification) {
-        return (
-          "<a class='dropdown-item' href='#'>" +
-          notification.user +
-          ' ' +
-          notification.action +
-          '</a>'
-        );
-      });
-      if (items.length == 0) {
-        $("[data-behavior='notification-items']").html(
-          "<div class='text-center'>No new notifications</div>"
-        );
-      } else {
-        $("[data-behavior='notification-items']").html(items);
-      }
-    }
-  });
-  return true;
-}
+// function getNotificationsData() {
+//   $.ajax({
+//     url: '/notifications.json',
+//     dataType: 'JSON',
+//     method: 'GET',
+//     success: function(data) {
+//       // console.log(data);
+//       items = $.map(data, function(notification) {
+//         return notification.template;
+//       });
+//       console.log(items);
+//       unread_count = 0;
+//       $.each(data, function(notification) {
+//         if (notification.unread) {
+//           unread_count += 1;
+//         }
+//       });
+//       $("[data-behavior='unread-count']").text(unread_count);
+//       $("[data-behavior='notification-items']").html(items);
+//     }
+//   });
+// }
 
-function postUnReadNotifications() {
-  $.ajax({
-    url: '/notifications/mark_as_read',
-    dataType: 'JSON',
-    method: 'POST',
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader(
-        'X-CSRF-Token',
-        $('meta[name="csrf-token"]').attr('content')
-      );
-    },
-    success: function() {
-      $("[data-behavior='unread-count']").text(0);
-    }
-  });
-}
+// function postUnreadNotifications() {
+//   $.ajax({
+//     url: '/notifications/mark_as_read',
+//     dataType: 'JSON',
+//     method: 'POST',
+//     beforeSend: function(xhr) {
+//       xhr.setRequestHeader(
+//         'X-CSRF-Token',
+//         $('meta[name="csrf-token"]').attr('content')
+//       );
+//     },
+//     success: function() {
+//       console.log('posted');
+//       $("[data-behavior='unread-count']").text(0);
+//     }
+//   });
+// }
