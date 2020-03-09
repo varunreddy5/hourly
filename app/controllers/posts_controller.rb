@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :activity_feed, :index]
   def index
-    @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])
+    # @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])
+    @pagy, @posts = pagy(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), items: 10)
+
   end
 
   def activity_feed
-    @posts = Post.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc).paginate(page: params[:page])
+    @pagy, @posts = pagy(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc), items: 10)
   end
 
   def create

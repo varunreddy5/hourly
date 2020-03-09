@@ -5,7 +5,8 @@
       <p class="text-center mt-5">Follow users from explore page to view activity feed</p>
     <% else %>
       <%= render @posts %>
-      <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
+      <%# will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
+      <%== pagy_bootstrap_nav(@pagy) %>
     <% end %>
   </div>
   <div class="col-md-2"></div>

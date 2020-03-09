@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :index]
 
   def index
-    @users = User.order(:created_at).paginate(page: params[:page])
+    @pagy, @users = pagy(User.all.order(:created_at), items: 10)
   end
   def new
     @user = User.new
