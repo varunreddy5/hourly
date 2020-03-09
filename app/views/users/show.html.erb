@@ -21,7 +21,13 @@
 </div>
 <div class="row">
   <div class="col-sm-8 offset-sm-2">
-    <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
+    <%# will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
+    <div id="posts-user">
+      <%= render partial: 'posts/post' %>
+    </div>
+    <div id="next_page_user">
+      <%= render partial: 'posts/next_page' %>
+    </div>
   </div>
 </div>
 <%# end %>

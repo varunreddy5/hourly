@@ -1,31 +1,41 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :activity_feed, :index]
   def index
+    @count  = 1
     # @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])
-    @pagy, @posts = pagy(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), items: 10)
+    @pagy, @posts = pagy_countless(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), items: 20, link_extra: 'data-remote="true"')
+    # pagy_countless(Product.all, link_extra: 'data-remote="true"'
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
   end
 
   def activity_feed
-    @pagy, @posts = pagy(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc), items: 10)
+    @pagy, @posts = pagy_countless(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc), items: 20,link_extra: 'data-remote="true"')
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    @user = @post.user
+    @posts = current_user.posts.build(post_params)
+    @user = @posts.user
     respond_to do |format|
-      if @post.save
-        @post.user.followers.each do |user|
-          Notification.create(recipient_id: user.id, user: current_user, action: "posted", notifiable: @post)
+      if @posts.save
+        @posts.user.followers.each do |user|
+          Notification.create(recipient_id: user.id, user: current_user, action: "posted", notifiable: @posts)
         end
         format.html{ 
           flash[:success] = "Posted Successfully!" 
           redirect_to current_user 
         }
-        format.js
+        format.js{ render layout: false}
       else
         format.html{ render current_user }
-        format.js
+        format.js{ render layout: false}
       end
     end
   end
