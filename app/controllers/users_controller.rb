@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   # before_action :logged_in_user
-  before_action :correct_user, only: [:edit, :update, :index]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
-    @pagy, @users = pagy_countless(User.all.order(:created_at), link_extra: 'data-remote="true"')
+    @pagy, @users = pagy(User.all.order(:created_at), link_extra: 'data-remote="true"')
   end
   def new
     @user = User.new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @pagy, @posts =  pagy_countless(@user.posts.order(created_at: :desc), items: 5, link_extra: 'data-remote="true"')
+    @pagy, @posts =  pagy_countless(@user.posts.order(created_at: :desc), items: 20, link_extra: 'data-remote="true"')
     @post = @user.posts.build
     respond_to do |format|
       format.html

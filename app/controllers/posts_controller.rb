@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :activity_feed, :index]
   def index
-    @count  = 1
+    
     # @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])
-    @pagy, @posts = pagy_countless(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), items: 20, link_extra: 'data-remote="true"')
+    @pagy, @posts = pagy_countless(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), link_extra: 'data-remote="true"')
     # pagy_countless(Product.all, link_extra: 'data-remote="true"'
     respond_to do |format|
       format.html
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def activity_feed
-    @pagy, @posts = pagy_countless(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc), items: 20,link_extra: 'data-remote="true"')
+    @pagy, @posts = pagy_countless(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc),link_extra: 'data-remote="true"')
     respond_to do |format|
       format.html
       format.js
