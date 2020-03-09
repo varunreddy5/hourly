@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   # attr_accessor :remember_token
   before_save { self.email = email.downcase}
@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :notifications, as: :recipient
+  has_many :services
 
   # Returns the hash digest of the given string
   # def self.digest(string)
