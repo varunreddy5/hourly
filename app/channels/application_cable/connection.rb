@@ -7,8 +7,9 @@ module ApplicationCable
 
     private
     def find_verified_user
-      if current_user = User.find_by(id: cookies.signed[:user_id])
-        # debugger
+      # We can just access Warden directly to find out if the user is logged in or not
+      # Using Warden directly will give us access to that as it's what Devise uses internally for authentication
+      if current_user = env['warden'].user
         current_user
       else
         reject_unauthorized_connection
