@@ -3,7 +3,7 @@
   <%= render 'posts/create_post_modal' %>
 <% else %>
   <div id="follow-unfollow-<%= @user.id %>" class="follow-unfollow">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <%= render partial: 'follow_form', locals: {user: @user } %>
     <% end %>
   </div>

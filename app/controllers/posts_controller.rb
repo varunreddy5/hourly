@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :activity_feed, :index]
+  before_action :authenticate_user!, only: [:edit, :update, :activity_feed, :index]
   def index
     
     # @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])

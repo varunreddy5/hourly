@@ -1,9 +1,11 @@
-Rails.application.routes.draw do
+# Rails.application.routes.draw do
+#   devise_for :users
   Rails.application.routes.draw do
+  devise_for :users
     root 'posts#index'
-    get '/login', to: 'sessions#new'
-    post '/login', to: 'sessions#create'
-    delete '/logout', to: 'sessions#destroy'
+    # get '/login', to: 'sessions#new'
+    # post '/login', to: 'sessions#create'
+    # delete '/logout', to: 'sessions#destroy'
     get '/activity_feed', to: 'posts#activity_feed'
     resources :users do
       member do
@@ -21,4 +23,4 @@ Rails.application.routes.draw do
       end
     end
   end
-end
+# end

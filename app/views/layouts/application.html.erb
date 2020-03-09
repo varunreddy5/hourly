@@ -14,7 +14,7 @@
     <div class="container">
       <div class="alerts text-center">
         <% flash.each do |message_type, message_tag| %>
-          <div class="mt-4 alert alert-<%= message_type %>"> <%= message_tag %></div>
+          <div class="mt-4 alert alert-info %>"> <%= message_tag %></div>
         <% end %>
       </div>
       <%= yield %>

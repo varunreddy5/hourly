@@ -1,4 +1,4 @@
-<% if logged_in? && current_user_post?(post) %>
+<% if user_signed_in? && current_user_post?(post) %>
   <div class="delete-post">
     <%= link_to post_path(post), method: :delete, remote: true, data: {confirm: "Are you sure to delete this post?"} do %>
       <i class="far fa-trash-alt"></i>

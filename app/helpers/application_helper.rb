@@ -1,4 +1,4 @@
 module ApplicationHelper
-  include SessionsHelper
+  # include SessionsHelper
   include Pagy::Frontend 
 end

@@ -1,5 +1,5 @@
 module PostsHelper
-  include SessionsHelper
+  # include SessionsHelper
   def already_liked?(post, user)
     post.likes.where(user: user).any?
   end 
