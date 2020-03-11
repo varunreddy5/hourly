@@ -1,11 +1,13 @@
-# Rails.application.routes.draw do
-#   devise_for :users
   Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+    devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+    namespace :api do
+      namespace :v1 do
+        resources :users do
+          resources :posts
+        end
+      end
+    end
     root 'posts#index'
-    # get '/login', to: 'sessions#new'
-    # post '/login', to: 'sessions#create'
-    # delete '/logout', to: 'sessions#destroy'
     get '/activity_feed', to: 'posts#activity_feed'
     resources :users do
       member do
@@ -23,4 +25,3 @@
       end
     end
   end
-# end
