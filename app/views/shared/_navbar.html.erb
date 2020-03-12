@@ -31,6 +31,8 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'Settings', edit_user_registration_path(current_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
+            <%= link_to 'Developer Tools', new_api_v1_authentication_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>

@@ -1,0 +1,11 @@
+<div class="row mt-5">
+  <div class="col-sm-6 offset-sm-3">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" value = <%= current_user.email %> disabled="disabled">
+    </div>
+    <%= link_to "Get Token", api_v1_auth_path(user: current_user), method: :post, remote: true, class: 'btn btn-outline-primary' %>
+    <div id="token">
+    </div>
+  </div>
+</div>
