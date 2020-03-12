@@ -39,13 +39,6 @@
         <%= link_to 'Connect', user_github_omniauth_authorize_path %>
       <% end %>
     </p>
-    <p>Twitter: 
-      <% if current_user.services.where(provider: 'twitter').any? %>
-        Connected
-      <% else %>
-        <%= link_to 'Connect', user_twitter_omniauth_authorize_path %>
-      <% end %>
-    </p>
     <hr>
     <h4 class="mt-3">Cancel my account</h4>
     <hr>

@@ -5,12 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to 'Activity Feed', '/activity_feed', class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Explore', posts_path, class: "nav-link" %>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Activity Feed', '/activity_feed', class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Explore', posts_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
     <ul class="navbar-nav ml-auto right-nav">
       <% if user_signed_in? %>

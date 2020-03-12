@@ -9,7 +9,7 @@ class ApiController < ApplicationController
 
   def authenticate_token!
     payload = JsonWebToken.decode(auth_token)
-    @current_user = User.find(payload['sub'])
+    @current_user = User.find_by_username(payload['sub'])
     p @current_user
   rescue JWT::ExpiredSignature
     render json: { errors: ['Auth Token has expired']}, status: :unauthorized

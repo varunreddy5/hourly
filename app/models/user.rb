@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   # attr_accessor :remember_token
   before_save { self.email = email.downcase}
-  # validates :name, presence: true, length: { maximum: 50}
+  validates_presence_of :username
+  validates_uniqueness_of :username
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   # has_secure_password
@@ -23,6 +24,10 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient
   has_many :services
+
+  def to_param
+    username
+  end
 
   # Returns the hash digest of the given string
   # def self.digest(string)

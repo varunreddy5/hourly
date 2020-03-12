@@ -9,6 +9,6 @@ class Api::V1::PostsController < ApiController
   end
 
   def set_user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by_username(params[:user_id])
   end
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   # before_action :logged_in_user
   # before_action :correct_user, only: [:edit, :update, :index]
 
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   # end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @pagy, @posts =  pagy_countless(@user.posts.order(created_at: :desc), items: 20, link_extra: 'data-remote="true"')
     @post = @user.posts.build
     respond_to do |format|
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   # end
 
   def followers
-    @user  = User.find(params[:id])
+    @user  = User.find_by_username(params[:id])
     @users = @user.followers
     respond_to do |format|
       format.js
@@ -55,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user  = User.find(params[:id])
+    @user  = User.find_by_username(params[:id])
     @users = @user.following
     
     respond_to do |format|

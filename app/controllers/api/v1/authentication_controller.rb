@@ -10,8 +10,9 @@ class Api::V1::AuthenticationController < ApiController
   
   end
   def create
-    user = User.find(params[:user])
-    @token = JsonWebToken.encode(sub: user.id)
+    user = User.find_by_username(params[:user])
+    # debugger
+    @token = JsonWebToken.encode(sub: user.username)
     respond_to do |format|
       format.html
       format.js

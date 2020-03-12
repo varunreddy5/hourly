@@ -2,18 +2,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   before_action :set_service
   before_action :set_user
   attr_reader :service, :user
-  def facebook
-    # Next we need to lookup the user if the record is present in the database else we need to create a new user
-    handle_auth("Facebook")
-  end
+  # def facebook
+  #   # Next we need to lookup the user if the record is present in the database else we need to create a new user
+  #   handle_auth("Facebook")
+  # end
 
   def github
     handle_auth("Github")
   end
 
-  def twitter
-    handle_auth("Twitter")
-  end
+  # def twitter
+  #   handle_auth("Twitter")
+  # end
 
   private 
   def handle_auth(kind)
@@ -48,13 +48,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         flash[:alert] = "An account with this email already exists. Please signin with that account before connecting your #{auth.provider} account"
         redirect_to new_user_session_path
     else
-      username = auth.info.nickname.present? ? auth.info.nickname : auth.info.email.split('@')[0]
+      # username = auth.info.nickname.present? ? auth.info.nickname : auth.info.email.split('@')[0]
       @user = User.new(     # Create a new user with auth credentials
         email: auth.info.email, 
         name: auth.info.name,
-        username: username,
+        username: auth.info.nickname,
         password: Devise.friendly_token[0, 20]
       )
+      debugger
       if !@user.save
         flash[:alert] = "Your email or username of your #{auth.provider} account is not accessible. Please choose a different login method"
         redirect_to new_user_session_path
