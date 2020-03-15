@@ -8,6 +8,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase}
   validates_presence_of :username
   validates_uniqueness_of :username
+  has_one_attached :avatar
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   # has_secure_password
