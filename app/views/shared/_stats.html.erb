@@ -1,16 +1,16 @@
 <div id="stats">
   <% @user ||= current_user %>
   <div class="post-count">
-    <strong id="post-count-<%=@user.id %>"><%= @user.posts.count %></strong> Posts
+    <strong id="post-count-<%=@user.id %>"><%= @user.posts_count %></strong> Posts
   </div>
   <%= link_to followers_user_path(@user), class: "followers", remote: true do %>
-    <strong id="followers-<%=@user.id %>"><%= @user.followers.count %></strong>
+    <strong id="followers-<%=@user.id %>"><%= @user.followers_count %></strong>
     Followers
   <% end %>
   <div id="followers-content">
   </div>
   <%= link_to  following_user_path(@user), class: "following", remote: true do %>
-    <strong id="following-<%= @user.id %>"><%= @user.following.count %></strong>
+    <strong id="following-<%= @user.id %>"><%= @user.following_count %></strong>
     Following
   <% end %>
   <div id="following-content">
