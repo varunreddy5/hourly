@@ -14,8 +14,11 @@
         </li>
       <% end %>
     </ul>
-    <ul class="navbar-nav ml-auto right-nav">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <ul class="navbar-nav ml-auto right-nav">
+        <%= simple_form_for users_path, html: { class: "form-inline mr-5"}, method: :get do |f| %>
+          <%= f.input :q, placeholder: "Search Users", label: false, class: "autocomplete" %>
+        <% end %>
         <li class="nav-item dropdown" data-behavior = "notifications">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-behavior="notifications-link">
             <i class="fas fa-bell"></i> <span data-behavior="unread-count"></span>
@@ -38,14 +41,17 @@
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
-      <% else %>
+      </ul>
+    <% else %>
+      <ul class="navbar-nav ml-auto right-nav">
         <li class="nav-item active">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
-      <% end %>
-    </ul>
-  </div>
+      </ul>
+    <% end %>
+  </ul>
+</div>
 </nav>

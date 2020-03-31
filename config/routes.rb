@@ -15,6 +15,9 @@
       member do
         get :followers, :following
       end
+      collection do
+        get :autocomplete
+      end
     end
     resources :posts, only: [:create, :destroy, :index, :show] do
       resource :likes

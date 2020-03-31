@@ -25,7 +25,7 @@
               </div>
               <div class="col-md-2 offset-md-2">
                 <div id="post-comments-<%= post.id %>">
-                  <span><%= post.comments_count %></span>
+                  <%# <span> post.comments_count </span> %>
                   <%= link_to '#', data: { action: 'click->reply#show'} do %>
                     <i class="fas fa-comment-alt comment"></i>
                   <% end %>

@@ -64,6 +64,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def autocomplete
+    
+    # render json: User.search(params[:term], { fields: [:name], match: :word_start, limit: 10, load: false, misspellings: { below: 5 }}).map(&:name)
+
+    # render 
+    render json: User.search(params[:term], {
+      fields: [:username],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:username)
+  end
+
   # private 
   # def user_params
   #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
