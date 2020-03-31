@@ -17,7 +17,7 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto right-nav">
         <%= simple_form_for users_path, html: { class: "form-inline mr-5"}, method: :get do |f| %>
-          <%= f.input :q, placeholder: "Search Users", label: false, class: "autocomplete" %>
+          <%= f.input :q,  placeholder: "Search Users", label: false, class: "autocomplete" %>
         <% end %>
         <li class="nav-item dropdown" data-behavior = "notifications">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-behavior="notifications-link">

@@ -755,6 +755,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
   integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
 
+"@rails/actioncable@^6.0.2-2":
+  version "6.0.2-2"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.2-2.tgz#237907f8111707950381387c273b19ac25958408"
+  integrity sha512-0sKStf8hnberH1TKup10PJ92JT2dVqf3gf+OT4lJ7DiYSBEuDcvICHxWsyML2oWTpjUhC4kLvUJ3pXL2JJrJuQ==
+
 "@rails/actiontext@^6.0.2-1":
   version "6.0.2-1"
   resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.2-1.tgz#6ca7750f98b5321ea6ec0cd81c1a3d3c2c9046e5"
@@ -768,6 +773,11 @@
   integrity sha512-X0uGBLNsSKvVw5n93rH7k+7rbxc3Cq7p0ShiQbrk1cN0xflGjElzEJRY3okZZHsKkCV+h6rFCk0BOBVrLSrJ0A==
   dependencies:
     spark-md5 "^3.0.0"
+
+"@rails/ujs@^6.0.2-2":
+  version "6.0.2-2"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.2-2.tgz#7a28774789ca3f4a8e95e58e5a19dbaa9d6c0feb"
+  integrity sha512-JtDia3bpMbk4WeI4TwGzBfO9ahe6JeNaVE5d6qt1dS0c2KSSXxtKG4YpdiSQLZbutKAiakJPLZ3ZeoD6wRRIXg==
 
 "@rails/webpacker@4.2.2":
   version "4.2.2"
@@ -1808,6 +1818,18 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+coffee-loader@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/coffee-loader/-/coffee-loader-0.9.0.tgz#6deabd336062ddc6d773da4dfd16367fc7107bd6"
+  integrity sha512-VSoQ5kWr6Yfjn4RDpVbba2XMs3XG1ZXtLakPRt8dNfUcNU9h+1pocpdUUEd7NK9rLDwrju4yonhxrL8aMr5tww==
+  dependencies:
+    loader-utils "^1.0.2"
+
+coffeescript@1.12.7:
+  version "1.12.7"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-1.12.7.tgz#e57ee4c4867cf7f606bfc4a0f2d550c0981ddd27"
+  integrity sha512-pLXHFxQMPklVoEekowk8b3erNynC+DVJzChxS/LCBBgR6/8AJkHivkm//zbowcfc7BTCAjryuhx6gPqPRfsFoA==
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -6991,6 +7013,11 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
+
+turbolinks@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
+  integrity sha512-pMiez3tyBo6uRHFNNZoYMmrES/IaGgMhQQM+VFF36keryjb5ms0XkVpmKHkfW/4Vy96qiGW3K9bz0tF5sK9bBw==
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

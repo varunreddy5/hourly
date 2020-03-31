@@ -1,0 +1,23 @@
+#stats,
+#followers-content,
+#following-content,
+.post-count {
+  display: inline;
+}
+.post-count,
+.followers,
+.following {
+  margin: 0 50px;
+}
+.follow-unfollow {
+  display: inline;
+  form {
+    display: inline;
+  }
+}
+.modal-button {
+  float: right;
+}
+.usernames {
+  margin-bottom: 40px;
+}
