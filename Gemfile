@@ -51,6 +51,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # gem 'thin'
+  gem 'bullet'
 end
 
 group :test do
@@ -82,3 +83,4 @@ gem 'omniauth-twitter'
 gem 'jwt'
 gem 'searchkick'
 gem 'jquery-ui-rails'
+# gem 'bullet', group: 'development'

@@ -8,10 +8,12 @@
       <%# will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center', class: "mt-5") %>
       <%# pagy_bootstrap_nav(@pagy) %>
       <div id="posts-feed">
-        <%= render partial: 'posts/post' %>
+        <%# render partial: 'posts/post' %>
+        <%= render @posts %>
       </div>
-      <div id="next_page_feed">
-        <%= render partial: 'next_page' %>
+      <%# render partial: 'next_page' %>
+      <div class="mt-4">
+        <%= pagy_bootstrap_nav(@pagy).html_safe %>
       </div>
     <% end %>
   </div>

@@ -3,15 +3,15 @@ class UsersController < ApplicationController
   
 
   def index
-    debugger
-    query = params[:q].presence || "*"
-    @user = User.search(query, suggest: true)
+    # debugger
+    # query = params[:q].presence || "*"
+    # @user = User.search(query, suggest: true)
   end
  
 
   def show
     @user = User.find_by_username(params[:id])
-    @pagy, @posts =  pagy_countless(@user.posts.order(created_at: :desc), items: 20, link_extra: 'data-remote="true"')
+    @pagy, @posts =  pagy(@user.posts.with_rich_text_content.order(created_at: :desc), items: 20)
     @post = @user.posts.build
     respond_to do |format|
       format.html
@@ -40,11 +40,6 @@ class UsersController < ApplicationController
 
   def autocomplete
     results = User.search(params[:term], {fields: [:username],match: :word_start,limit: 10, load: false,misspellings: {below: 5}}).map(&:username)
-    # users = results.map{ |user| User.find_by_username(user)}
     render json: results
-    
-    # render json: User.search(params[:term], {fields: [:username],match: :word_start,limit: 10, load: false,misspellings: {below: 5}}).map(&:username)
   end
-
-  
 end

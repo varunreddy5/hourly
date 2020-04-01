@@ -2,19 +2,18 @@ class PostsController < ApplicationController
   # skip_before_filter :verify_authenticity_token
   before_action :authenticate_user!, only: [:edit, :update, :activity_feed, :index]
   def index
-    
-    # @posts = Post.order(created_at: :desc).paginate(page: params[:page]).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id])
-    @pagy, @posts = pagy_countless(Post.all.order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), link_extra: 'data-remote="true"')
-    # pagy_countless(Product.all, link_extra: 'data-remote="true"'
+    # @pagy, @posts = pagy(Post.all.with_rich_text_content.includes(:comments, :likes, :user, user: :avatar_attachment).order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), link_extra: 'data-remote="true"')
+    @pagy, @posts = pagy(Post.all.with_rich_text_content.includes(:comments, :likes, :user, user: :avatar_attachment).order(created_at: :desc).where.not(user_id: [current_user.following.pluck(:id).flatten << current_user.id]), items: 10)
     respond_to do |format|
       format.html
       format.js
     end
-
   end
 
   def activity_feed
-    @pagy, @posts = pagy_countless(Post.all.where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc),link_extra: 'data-remote="true"')
+    # @pagy, @posts = pagy_countless(Post.all.with_rich_text_content.includes(:comments, :likes, :user, user: :avatar_attachment).where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc),link_extra: 'data-remote="true"')
+    @pagy, @posts = pagy(Post.all.with_rich_text_content.includes(:comments, :likes, :user, user: :avatar_attachment).where(user_id: [current_user.following.pluck(:id).flatten << current_user.id]).order(created_at: :desc), items: 10)
+
     respond_to do |format|
       format.html
       format.js
