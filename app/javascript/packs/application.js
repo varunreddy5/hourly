@@ -28,7 +28,10 @@ document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
   $('#_users_q').autocomplete({
-    source: 'users/autocomplete',
-    minlength: 2
+    source: '/autocomplete',
+    minlength: 2,
+    select: function(event, ui) {
+      location.href = '/users/' + ui.item.value;
+    }
   });
 });

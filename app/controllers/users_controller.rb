@@ -39,14 +39,11 @@ class UsersController < ApplicationController
   end
 
   def autocomplete
+    results = User.search(params[:term], {fields: [:username],match: :word_start,limit: 10, load: false,misspellings: {below: 5}}).map(&:username)
+    # users = results.map{ |user| User.find_by_username(user)}
+    render json: results
     
-    render json: User.search(params[:term], {
-      fields: [:username],
-      match: :word_start,
-      limit: 10,
-      load: false,
-      misspellings: {below: 5}
-    }).map(&:username)
+    # render json: User.search(params[:term], {fields: [:username],match: :word_start,limit: 10, load: false,misspellings: {below: 5}}).map(&:username)
   end
 
   

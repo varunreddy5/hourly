@@ -15,10 +15,12 @@
       member do
         get :followers, :following
       end
-      collection do
-        get :autocomplete
-      end
+      # collection do
+      #   get :autocomplete
+      # end
     end
+
+    get '/autocomplete', to: 'users#autocomplete'
     resources :posts, only: [:create, :destroy, :index, :show] do
       resource :likes
       resources :comments, module: :posts
