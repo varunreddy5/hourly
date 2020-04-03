@@ -1,0 +1,3 @@
+<div id="comments_<%=post.id%>">
+  <%= render post.comments.where(parent_id: nil), max_nesting: 3 %>
+</div>

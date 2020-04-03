@@ -1,0 +1,13 @@
+<div class="col-md-1">
+  <%= link_to user_path(post.user) do %>
+    <%= user_avatar(post.user, 45)%>
+  <% end %>
+</div>
+<div class="col-md-11">
+  <div class="user-content">
+    <span class="name"><b><%= link_to  post.user.name, user_path(post.user) %></b></span>
+    <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at) %> ago</small></span>
+    <br>
+    <span class="username"><%= post.user.username %></span>
+  </div>
+</div>

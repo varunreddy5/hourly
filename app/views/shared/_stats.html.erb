@@ -1,18 +1,43 @@
-<div id="stats">
-  <% @user ||= current_user %>
+<div class="col-md-3 stats">
+  <div class="p-label">
+    <span>Posts</span>
+  </div>
   <div class="post-count">
-    <strong id="post-count-<%=@user.id %>"><%= @user.posts_count %></strong> Posts
+    <span id="post-count-<%=@user.id%>"><%= @user.posts_count %></span>
   </div>
-  <%= link_to followers_user_path(@user), class: "followers", remote: true do %>
-    <strong id="followers-<%=@user.id %>"><%= @user.followers_count %></strong>
-    Followers
+</div>
+<div class="col-md-3 stats">
+  <div class="p-label">
+    <span>Followers</span>
+  </div>
+  <div class="followers-count">
+    <%= link_to followers_user_path(@user), class: "followers", remote: true do %>
+      <strong id="followers-<%=@user.id %>"><%= @user.followers_count %></strong>
+    <% end %>
+    <div id="followers-content">
+    </div>
+  </div>
+</div>
+<div class="col-md-3 stats">
+  <div class="p-label">
+    <span>Following</span>
+  </div>
+  <div class="following-count">
+    <%= link_to  following_user_path(@user), class: "following", remote: true do %>
+      <strong id="following-<%= @user.id %>"><%= @user.following_count %></strong>
+    <% end %>
+    <div id="following-content">
+    </div>
+  </div>
+</div>
+<div class="col-md-3 stats">
+  <% if current_user == @user %>
+    <%= render 'posts/create_post_modal' %>
+  <% else %>
+    <div id="follow-unfollow-<%= @user.id %>" class="follow-unfollow">
+      <% if user_signed_in? %>
+        <%= render partial: 'follow_form', locals: {user: @user } %>
+      <% end %>
+    </div>
   <% end %>
-  <div id="followers-content">
-  </div>
-  <%= link_to  following_user_path(@user), class: "following", remote: true do %>
-    <strong id="following-<%= @user.id %>"><%= @user.following_count %></strong>
-    Following
-  <% end %>
-  <div id="following-content">
-  </div>
 </div>

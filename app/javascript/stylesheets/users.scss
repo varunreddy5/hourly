@@ -1,13 +1,38 @@
-#stats,
-#followers-content,
-#following-content,
-.post-count {
-  display: inline;
+.user-info {
+  padding: 20px 20px 20px 0;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
 }
-.post-count,
-.followers,
-.following {
-  margin: 0 50px;
+.stats {
+  text-align: center;
+  .following-count,
+  .followers-count,
+  .post-count {
+    font-size: 24px;
+  }
+}
+.p-label {
+  color: #8795a1;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.post-count {
+  span {
+    color: #22292f;
+  }
+}
+.followers-count {
+  a {
+    color: #22292f;
+  }
+}
+.following-count {
+  a {
+    color: #22292f;
+  }
 }
 .follow-unfollow {
   display: inline;
