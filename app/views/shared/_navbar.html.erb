@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-background">
   <%= link_to  "Hourly", posts_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,23 +15,23 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
+      <%= simple_form_for users_path, html: { class: "form-inline"}, method: :get do |f| %>
+        <%= f.input :q, as: :search,  placeholder: "Search Users", label: false %>
+      <% end %>
       <ul class="navbar-nav ml-auto right-nav">
-        <%= simple_form_for users_path, html: { class: "form-inline mr-5"}, method: :get do |f| %>
-          <%= f.input :q, as: :search,  placeholder: "Search Users", label: false, class: "autocomplete" %>
-        <% end %>
-        <li class="nav-item dropdown" data-behavior = "notifications">
+        <li class="nav-item dropdown notifications" data-behavior = "notifications">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-behavior="notifications-link">
-            <i class="fas fa-bell"></i> <span data-behavior="unread-count"></span>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="bell-icon"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg> <span data-behavior="unread-count"></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-behavior="notification-items">
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to current_user.name, current_user, class: "nav-link" %>
+        <li class="nav-item navbar-username">
+          <%= link_to current_user.name, current_user, class: "nav-link " %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown user-avatar-dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= user_avatar(current_user, 25) %> Account
+            <%= user_avatar(current_user, 25) %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'Settings', edit_user_registration_path(current_user), class: "dropdown-item" %>

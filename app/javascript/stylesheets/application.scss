@@ -1,5 +1,79 @@
 @import '~bootstrap/scss/bootstrap';
 @import '@fortawesome/fontawesome-free';
+// @font-face {
+//   font-family: 'ProximaNova';
+//   src: url('../../assets/fonts/ProximaNova-Regular.otf');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+/************************** Navbar *************************/
+.bell-icon,
+.comment-icon,
+.delete-icon,
+.unlike {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+}
+.notifications,
+.navbar-username,
+.user-avatar-dropdown {
+  color: hsl(194, 23%, 92%);
+  .nav-link:hover {
+    color: hsl(194, 23%, 80%) !important;
+  }
+}
+.comment-icon,
+.delete-icon,
+.unlike {
+  color: rgb(136, 153, 166);
+}
+.like {
+  fill: rgb(224, 36, 94);
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+}
+.navbar-light {
+  background-color: hsl(194, 22%, 35%) !important;
+  .navbar-brand {
+    color: white;
+  }
+  .navbar-nav .nav-link {
+    color: white;
+  }
+  .search {
+    width: 550px !important;
+    background-color: hsl(194, 23%, 92%);
+    border: none;
+    border-radius: 4px;
+    // color: hsl(194, 8%, 56%); // icon color
+  }
+  .user-avatar-dropdown {
+    padding: 0 2rem;
+    // border-left: 2px solid;
+  }
+}
+
+/************************** End of Navbar *************************/
+
+/************************** Posts ********************************/
+.posts {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+}
+.user-avatar {
+  max-width: 50px;
+  max-height: 50px;
+}
+.card {
+  border: 0px !important;
+  border-radius: 0px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25) !important;
+}
+
+/************************** End of Posts ********************************/
 
 .modal-dialog {
   position: relative;
@@ -10,7 +84,12 @@
   min-width: 300px;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  // font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4e616c;
+  // font-family: 'Lato', sans-serif;
 }
 .right-nav {
   margin-right: 8em;
