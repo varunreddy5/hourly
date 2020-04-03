@@ -26,6 +26,7 @@ import '../stylesheets/application';
 import '../stylesheets/posts';
 import '../stylesheets/users';
 import '../stylesheets/comments';
+import '../stylesheets/shared/sidebar';
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
