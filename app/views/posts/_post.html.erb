@@ -1,34 +1,41 @@
 <div class="col-md-12 post" id = "post-<%= post.id %>" data-controller="reply">
   <div class="card">
     <div class="card-body">
-      <div class="row">
-        <%= render partial: 'posts/post_user_content', locals: { post: post } %>
-      </div>
-      <div class="row">
-        <%= render partial: 'posts/post_body', locals: { post: post }%>
-      </div>
-      <div class="row">
-        <div class="col-md-2 offset-md-1">
-          <%= render partial: 'posts/likes', locals: { post: post }%>
+      <% @shared_post = post.original_tweet_id? ? true : false %>
+      <% if post.original_tweet_id? %>
+        <%= render partial: 'posts/share', locals: { post: post }%>
+        <% post = post.original_tweet %>
+      <% end %>
+      <div class="original-post">
+        <div class="row">
+          <%= render partial: 'posts/post_user_content', locals: { post: post } %>
         </div>
-        <div class="col-md-2 offset-md-1">
-          <%= render partial: 'posts/post_comments', locals: { post: post }%>
+        <div class="row">
+          <%= render partial: 'posts/post_body', locals: { post: post }%>
         </div>
-        <div class="col-md-2 offset-md-1">
-          <%= render partial: 'posts/post_share', locals: { post: post }%>
+        <div class="row">
+          <div class="col-md-2 offset-md-1">
+            <%= render partial: 'posts/likes', locals: { post: post }%>
+          </div>
+          <div class="col-md-2 offset-md-1">
+            <%= render partial: 'posts/post_comments', locals: { post: post }%>
+          </div>
+          <div class="col-md-2 offset-md-1">
+            <%= render partial: 'posts/post_share', locals: { post: post, shared_post: @shared_post }%>
+          </div>
+          <div class="col-md-2 offset-md-1">
+            <%= render partial: 'posts/delete', locals: { post: post } %>
+          </div>
         </div>
-        <div class="col-md-2 offset-md-1">
-          <%= render partial: 'posts/delete', locals: { post: post } %>
+        <div class="row mt-3">
+          <div class="col-md-11 offset-md-1">
+            <%= render partial: "comments/form", locals: { commentable: post, class: 'd-none', target: 'reply.form'} %>
+          </div>
         </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-md-11 offset-md-1">
-          <%= render partial: "comments/form", locals: { commentable: post, class: 'd-none', target: 'reply.form'} %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <%= render partial: 'posts/comments', locals: { post: post } %>
+        <div class="row">
+          <div class="col-md-12">
+            <%= render partial: 'posts/comments', locals: { post: post } %>
+          </div>
         </div>
       </div>
     </div>

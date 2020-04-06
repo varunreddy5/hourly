@@ -1,25 +1,19 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  
-
-  def index
-    # debugger
-    # query = params[:q].presence || "*"
-    # @user = User.search(query, suggest: true)
+ 
+  def index 
   end
  
-
   def show
+    @shared_posts = Post.where("original_tweet_id IS NOT NULL AND user_id = ?", current_user).pluck(:original_tweet_id)
     @user = User.find_by_username(params[:id])
-    @pagy, @posts =  pagy(@user.posts.with_rich_text_content.order(created_at: :desc), items: 20)
+    @pagy, @posts =  pagy(@user.posts.with_rich_text_content.order(created_at: :desc), items: 10)
     @post = @user.posts.build
     respond_to do |format|
       format.html
       format.js
     end
   end
-
- 
 
   def followers
     @user  = User.find_by_username(params[:id])
