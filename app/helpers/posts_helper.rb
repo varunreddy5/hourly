@@ -7,4 +7,9 @@ module PostsHelper
     # you can't use find since you can't chain any on it
     current_user.posts.where(id: post.id).any?
   end
+
+
+  def already_shared?(post, user)
+    Post.where(original_tweet_id: post.id, user: user).any?
+  end
 end

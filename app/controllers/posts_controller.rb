@@ -62,12 +62,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @author = @post.user
     @shared_post = current_user.posts.new(original_tweet_id: @post.id)
+    
     if @shared_post.save
-      format.html{ 
-        flash[:success] = "Posted Shared Successfully!" 
-        redirect_to current_user 
-      }
-      format.js
+      respond_to do |format|
+        format.html{ 
+          flash[:success] = "Posted Shared Successfully!" 
+          redirect_to current_user 
+        }
+        format.js
+      end
     else
       redirect_to root_path
     end

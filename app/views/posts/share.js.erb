@@ -1,1 +1,1 @@
-$('#posts-user').append("<%= j(render partial: 'posts/post')%>");
+$('#post_share-<%= @post.id %>').html("<%=j render partial: 'posts/post_share', locals: { post: @post } %>")

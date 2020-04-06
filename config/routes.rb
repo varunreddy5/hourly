@@ -23,6 +23,7 @@
       resources :comments, module: :posts
       member do
         post :share
+        
       end
     end
     
