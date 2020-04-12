@@ -27,6 +27,7 @@ import '../stylesheets/posts';
 import '../stylesheets/users';
 import '../stylesheets/comments';
 import '../stylesheets/shared/sidebar';
+import '../stylesheets/chatrooms';
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();

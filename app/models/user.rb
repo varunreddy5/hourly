@@ -21,6 +21,11 @@ class User < ApplicationRecord
   has_many :services
   searchkick word_start: [:username]
 
+  has_many :chatroom_users
+  has_many :chatrooms, through: :chatroom_users
+  has_many :messages
+  
+
   def to_param
     username
   end

@@ -9,7 +9,7 @@
         end
       end
     end
-    root 'posts#index'
+    root 'posts#activity_feed'
     get '/activity_feed', to: 'posts#activity_feed'
     resources :users do
       member do
@@ -23,7 +23,7 @@
       resources :comments, module: :posts
       member do
         post :share
-        
+
       end
     end
     
@@ -32,5 +32,9 @@
       collection do
         post :mark_as_read
       end
+    end
+
+    resources :chatrooms do
+      resource :chatroom_users
     end
   end

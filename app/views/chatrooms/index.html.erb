@@ -1,0 +1,18 @@
+<div class="row">
+  <%= render partial: "sidebar" %>
+  <div class="col-md-6">
+    <ul>
+      <% @chatrooms.each do |chatroom| %>
+        <li>
+          <%= chatroom.name %>
+          <% if current_user.chatrooms.include?(chatroom) %>
+            <%= link_to "Leave", chatroom_chatroom_users_path(chatroom), method: :delete %>
+          <% else %>
+            <%= link_to "Join", chatroom_chatroom_users_path(chatroom), method: :post %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>

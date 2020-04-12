@@ -62,11 +62,13 @@ Rails.application.configure do
   # added by me 
   # config.force_ssl = true
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.rails_logger = true
-    Bullet.unused_eager_loading_enable = false
     # Bullet.enable = true
-    Bullet.alert = true
+    # Bullet.rails_logger = true
+    # Bullet.unused_eager_loading_enable = false
+    
+    # Bullet.alert = true
+
+    # above works
     # Bullet.bullet_logger = true
     # Bullet.console = true
     # Bullet.unused_eager_loading_enable = false
