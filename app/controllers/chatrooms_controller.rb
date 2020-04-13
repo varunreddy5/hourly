@@ -19,6 +19,8 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @chatroom = Chatroom.find(params[:id])
+    @messages = @chatroom.messages.order(created_at: :desc).reverse
   end
 
   def destroy

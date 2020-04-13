@@ -1,8 +1,8 @@
-<div class="col-md-3 chatrooms-sidebar">
+<div class="col-md-3 chatrooms-sidebar text-center">
   <h5>Chatrooms</h5>
   <ul>
     <% current_user.chatrooms.each do |chatroom| %>
-      <li><%= link_to  chatroom.name, chatroom_path(chatroom) %></li>
+      <li><%= link_to  chatroom.name, chatroom, data: { behaviour: 'chatroom-link', chatroom_id: chatroom.id} %></li>
     <% end %>
   </ul>
 </div>

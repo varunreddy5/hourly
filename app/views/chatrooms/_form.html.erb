@@ -1,0 +1,3 @@
+<%= simple_form_for [chatroom, Message.new] do |f| %>
+  <%= f.input :body, as: :text, label: false, input_html: { rows: 1, autofocus: true } %>
+<% end %>

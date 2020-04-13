@@ -18,6 +18,8 @@ require('@rails/actiontext');
 require('jquery-ui');
 window.jQuery = window.$ = require('jquery');
 require('../notifications');
+require('../chatrooms');
+// require('../cable');
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/actiontext';
@@ -34,8 +36,15 @@ document.addEventListener('turbolinks:load', () => {
   $('#_users_q').autocomplete({
     source: '/autocomplete',
     minlength: 2,
-    select: function(event, ui) {
+    select: function (event, ui) {
       location.href = '/users/' + ui.item.value;
-    }
+    },
   });
+
+  // $('#new_message').on('keypress', function (e) {
+  //   if (e && e.keyCode == 13) {
+  //     e.preventDefault();
+  //     $(this).submit();
+  //   }
+  // });
 });

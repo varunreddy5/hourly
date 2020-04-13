@@ -1,5 +1,16 @@
 <div class="row">
   <%= render partial: "sidebar" %>
-  <div class="col-md-6"></div>
+  <div class="col-md-6 offset-md-3">
+    <h5>
+      <%= @chatroom.name.capitalize %>
+    </h5>
+    <hr>
+    <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>'>
+      <% @messages.each do |message| %>
+        <%= render message%>
+      <% end %>
+    </div>
+    <%= render partial: 'form', locals: {chatroom: @chatroom }%>
+  </div>
   <div class="col-md-3"></div>
 </div>

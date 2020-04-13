@@ -36,5 +36,6 @@
 
     resources :chatrooms do
       resource :chatroom_users
+      resources :messages
     end
   end

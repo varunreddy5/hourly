@@ -4,8 +4,8 @@
   <% end %>
 </div>
 <div class="col-md-11">
-  <div class="user-content">
-    <span class="name"><b><%= link_to  post.user.name, user_path(post.user) %></b></span>
+  <div class="user-content ml-2">
+    <span class="name"><%= link_to  post.user.name, user_path(post.user) %></span>
     <span class="created-at float-right"><small><%= time_ago_in_words(post.created_at) %> ago</small></span>
     <br>
     <span class="username"><%= post.user.username %></span>
