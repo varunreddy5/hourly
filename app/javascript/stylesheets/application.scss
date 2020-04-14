@@ -45,8 +45,10 @@
 .notifications,
 .navbar-username,
 .user-avatar-dropdown,
-.navbar-messages {
-  color: hsl(194, 23%, 92%);
+.navbar-messages,
+a.nav-link.login,
+a.nav-link.sign-up {
+  color: hsl(194, 23%, 92%) !important;
   .nav-link:hover,
   .nav-link:active {
     color: hsl(194, 23%, 80%) !important;
@@ -157,6 +159,10 @@
 .shared-user-info {
   margin-bottom: 1rem;
 }
+.create-button {
+  background-color: #4299e1 !important;
+  border: none;
+}
 
 /************************** End of Posts ********************************/
 
@@ -166,7 +172,7 @@
   overflow-y: auto;
   overflow-x: auto;
   width: auto;
-  min-width: 300px;
+  min-width: 600px;
 }
 body {
   font-family: 'Source Sans Pro', sans-serif;

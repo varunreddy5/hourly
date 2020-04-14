@@ -30,6 +30,8 @@ import '../stylesheets/users';
 import '../stylesheets/comments';
 import '../stylesheets/shared/sidebar';
 import '../stylesheets/chatrooms';
+// import Trix from 'trix';
+
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
@@ -40,11 +42,4 @@ document.addEventListener('turbolinks:load', () => {
       location.href = '/users/' + ui.item.value;
     },
   });
-
-  // $('#new_message').on('keypress', function (e) {
-  //   if (e && e.keyCode == 13) {
-  //     e.preventDefault();
-  //     $(this).submit();
-  //   }
-  // });
 });

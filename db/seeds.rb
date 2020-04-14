@@ -17,7 +17,7 @@ end
 
 users = User.all
 50.times do |p|
-  content = Faker::Lorem.sentence(word_count: 15)
+  content = Faker::Lorem.sentence(word_count: 30)
   users.each{ |user| user.posts.create!(content: content)}
 end
 

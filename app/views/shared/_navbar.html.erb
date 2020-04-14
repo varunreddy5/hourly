@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light custom-background">
-  <%= link_to  "Hourly", posts_path, class: "navbar-brand" %>
+  <%= link_to  "UFConnect", posts_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -61,11 +61,11 @@
       </ul>
     <% else %>
       <ul class="navbar-nav ml-auto right-nav">
-        <li class="nav-item active">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item active ">
+          <%= link_to "Login", new_user_session_path, class: "nav-link login" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link sign-up" %>
         </li>
       </ul>
     <% end %>

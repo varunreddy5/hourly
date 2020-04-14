@@ -46,3 +46,30 @@
 .usernames {
   margin-bottom: 40px;
 }
+
+.trix-button-row {
+  .trix-button-group--text-tools,
+  .trix-button-group--block-tools,
+  .trix-button-group--history-tools,
+  .trix-button-group-spacer {
+    display: none;
+  }
+}
+trix-toolbar {
+  .trix-button {
+    border-bottom: 0 !important;
+  }
+  .trix-button-group {
+    margin-left: 0px !important;
+    border: 0 !important;
+    .trix-button--icon-attach::before {
+      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="DarkCyan" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="photograph-icon"><path  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>');
+    }
+  }
+}
+
+.trix-content {
+  figcaption {
+    display: none;
+  }
+}
