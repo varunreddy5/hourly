@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render partial: "sidebar" %>
+  <%= render partial: "chatrooms/sidebar" %>
   <div class="col-md-6 offset-md-3">
     <h5>
       <%= @chatroom.name.capitalize %>
@@ -10,7 +10,7 @@
         <%= render message%>
       <% end %>
     </div>
-    <%= render partial: 'form', locals: {chatroom: @chatroom }%>
+    <%= render partial: 'chatrooms/form', locals: {chatroom: @chatroom }%>
   </div>
   <div class="col-md-3"></div>
 </div>

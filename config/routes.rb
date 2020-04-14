@@ -38,4 +38,6 @@
       resource :chatroom_users
       resources :messages
     end
+
+    resources :direct_messages
   end
