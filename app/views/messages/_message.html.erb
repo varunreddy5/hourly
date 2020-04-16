@@ -1,14 +1,21 @@
 <div class="row">
-  <% if message.user != request.env['warden'].user %>
+  <% if incoming_message %>
     <div class="col-md-6">
       <div class="message-row">
-        <span class="incoming_message"><%= message.user.username %>: <%= message.body %></span>
+        <div class="incoming_message" style="display: flex; justify-content: left">
+          <span class="message-avatar"><%= user_avatar(message.user, 35) %></span>
+          <span class="message-body"><%= message.body %></span>
+        </div>
+        <div class="message-date-incoming"><%= message.created_at.strftime("%d %b '%y, %l:%M %P") %></div>
       </div>
     </div>
   <% else %>
-    <div class="col-md-6 offset-6 text-right">
+    <div class="col-md-6 offset-6">
       <div class="message-row">
-        <span class="outgoing_message"><%= message.user.username %>: <%= message.body %></span>
+        <div class="outgoing_message" style="display: flex; justify-content: right">
+          <span class="message-body"><%= message.body %></span>
+        </div>
+        <div class="message-date-outgoing"><%= message.created_at.strftime("%d %b '%y, %l:%M %P") %></div>
       </div>
     </div>
   <% end %>

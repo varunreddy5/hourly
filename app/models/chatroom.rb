@@ -6,6 +6,7 @@ class Chatroom < ApplicationRecord
   scope :public_channels, ->{ where(direct_message: false) }
   scope :direct_messages, ->{ where(direct_message: true) }
 
+  
   def self.direct_message_for_users(users)
     
     user_ids = users.map(&:id).sort

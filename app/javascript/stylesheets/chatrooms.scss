@@ -4,21 +4,3 @@ ul {
 // .chatrooms-sidebar {
 //   margin-top: 10px;
 // }
-.chatroom-users {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 4px;
-  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
-  // z-index: 1000;
-  position: relative;
-  // left: 200px;
-  top: 3px;
-  // bottom: 10px;
-  height: 88vh;
-
-  // margin-left: -175px;
-  overflow-y: scroll;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}

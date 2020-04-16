@@ -1,8 +1,15 @@
 <div class="col-md-3 chatrooms-sidebar text-center">
   <div class="chatroom-users">
+    <div class="chatrooms-search">
+      <%= render partial: 'form'%>
+    </div>
     <div class="dm-users">
-      <% current_user.following.each do |user| %>
-        <%= render partial:'users/user_info', locals: { user: user } %>
+      <% if current_user.following_count == 0 %>
+        <p>Please follow users to message them.</p>
+      <% else %>
+        <% current_user.following.each do |user| %>
+          <%= render partial:'users/user_info', locals: { user: user } %>
+        <% end %>
       <% end %>
     </div>
   </div>

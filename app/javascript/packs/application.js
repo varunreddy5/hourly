@@ -40,7 +40,17 @@ document.addEventListener('turbolinks:load', () => {
     source: '/autocomplete',
     minlength: 2,
     select: function (event, ui) {
-      location.href = '/users/' + ui.item.value;
+      location.href = '/users/' + ui.item.value[0];
+    },
+  });
+  $('#_users_dm').autocomplete({
+    source: '/autocomplete',
+    minlength: 2,
+    select: function (event, ui) {
+      console.log(ui);
+      alert(ui);
+
+      location.href = '/direct_messages/' + ui;
     },
   });
 });

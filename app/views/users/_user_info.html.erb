@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-10 text-left">
           <div class="user-content ml-2">
-            <span class="name"><%= link_to user.name, direct_message_path(user.id), data: { behaviour: 'chatroom-link', chatroom_id: ""} %></span>
+            <span class="name"><%= link_to user.name, direct_message_path(user.username), data: { behaviour: 'chatroom-link', chatroom_id: ""} %></span>
           </div>
         </div>
       </div>

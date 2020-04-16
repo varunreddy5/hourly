@@ -1,3 +1,24 @@
+.chatroom-users {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
+  // z-index: 1000;
+  position: relative;
+  // left: 200px;
+  // top: 3px;
+  // bottom: 10px;
+  height: 88vh;
+
+  // margin-left: -175px;
+  overflow-y: scroll;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  .chatrooms-search {
+    padding: 15px 0px 15px 25px;
+  }
+}
 .messages-outer {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 4px;
@@ -5,21 +26,46 @@
 }
 .messages-section {
   bottom: 30px;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
 
-  height: 75vh;
+  height: 72vh;
   overflow-y: auto;
 }
 .dm-username {
   padding: 20px 0px 0px 0px;
 }
-// .message-row {
-//   clear: both;
-// }
-// .incoming_message {
-//   padding: 20px 0px;
-//   float: left;
-// }
-// .outgoing_message {
-//   padding: 20px 0px;
-//   float: right;
-// }
+
+.message-row {
+  margin: 25px 30px 15px 0px;
+  .incoming_message {
+    .message-body {
+      background-color: #fff3cd;
+      border: 1px solid #fff3cd;
+      border-radius: 8px;
+      padding: 5px 15px;
+    }
+    .message-avatar {
+      margin-right: 10px;
+    }
+  }
+  .outgoing_message {
+    .message-body {
+      background-color: #cce5ff;
+      border: 1px solid #cce5ff;
+      border-radius: 8px;
+      padding: 5px 15px;
+    }
+  }
+  .message-date-outgoing {
+    float: right;
+    font-size: 12px;
+    color: #8795a1;
+  }
+  .message-date-incoming {
+    float: left;
+    font-size: 12px;
+    color: #8795a1;
+    margin-left: 10px;
+  }
+}

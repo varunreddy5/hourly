@@ -52,5 +52,6 @@ submit_messages = function () {
     var body = $('#message_body');
     chatrooms.send_message(chatroom_id, body.val());
     body.val('');
+    $('#messages-section').scrollTo(100);
   });
 };
