@@ -30,6 +30,7 @@ import '../stylesheets/users';
 import '../stylesheets/comments';
 import '../stylesheets/shared/sidebar';
 import '../stylesheets/chatrooms';
+import '../stylesheets/direct_messages';
 // import Trix from 'trix';
 
 document.addEventListener('turbolinks:load', () => {

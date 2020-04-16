@@ -1,0 +1,25 @@
+.messages-outer {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
+}
+.messages-section {
+  bottom: 30px;
+
+  height: 75vh;
+  overflow-y: auto;
+}
+.dm-username {
+  padding: 20px 0px 0px 0px;
+}
+// .message-row {
+//   clear: both;
+// }
+// .incoming_message {
+//   padding: 20px 0px;
+//   float: left;
+// }
+// .outgoing_message {
+//   padding: 20px 0px;
+//   float: right;
+// }

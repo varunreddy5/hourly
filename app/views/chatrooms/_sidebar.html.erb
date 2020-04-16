@@ -1,18 +1,9 @@
 <div class="col-md-3 chatrooms-sidebar text-center">
-  <div class="chatrooms">
-    <h5>Chatrooms</h5>
-    <ul>
-      <% current_user.chatrooms.each do |chatroom| %>
-        <li><%= link_to  chatroom.name, chatroom, data: { behaviour: 'chatroom-link', chatroom_id: chatroom.id} %></li>
-      <% end %>
-    </ul>
-  </div>
   <div class="chatroom-users">
-    <h5>Users</h5>
-    <ul>
+    <div class="dm-users">
       <% current_user.following.each do |user| %>
-        <li><%= link_to user.name, direct_message_path(user.id), data: { behaviour: 'chatroom-link', chatroom_id: ""} %></li>
+        <%= render partial:'users/user_info', locals: { user: user } %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>

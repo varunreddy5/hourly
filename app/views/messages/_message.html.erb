@@ -1,1 +1,15 @@
-<p><%= message.user.username %>: <%= message.body %></p>
+<div class="row">
+  <% if message.user != request.env['warden'].user %>
+    <div class="col-md-6">
+      <div class="message-row">
+        <span class="incoming_message"><%= message.user.username %>: <%= message.body %></span>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-md-6 offset-6 text-right">
+      <div class="message-row">
+        <span class="outgoing_message"><%= message.user.username %>: <%= message.body %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,13 @@
 <div class="row">
   <%= render partial: "chatrooms/sidebar" %>
-  <div class="col-md-6">
-    <h5>
-      <%= @chatroom.name.capitalize %>
+  <div class="col-md-6 messages-outer">
+    <h5 class="dm-username">
+      <%= User.find(params[:id]).name %>
     </h5>
     <hr>
-    <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>'>
+    <div class="messages-section" data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>'>
       <% @messages.each do |message| %>
-        <%= render message%>
+        <%= render message %>
       <% end %>
     </div>
     <%= render partial: 'chatrooms/form', locals: {chatroom: @chatroom }%>
