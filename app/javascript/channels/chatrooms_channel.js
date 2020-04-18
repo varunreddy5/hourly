@@ -20,7 +20,7 @@ const chatrooms = consumer.subscriptions.create('ChatroomsChannel', {
     } else {
       $(
         "[data-behavior='messages'][data-chatroom-id=" + data.chatroom_id + ']'
-      ).css('font-weight', 'bold');
+      ).css('color', 'red');
     }
   },
 

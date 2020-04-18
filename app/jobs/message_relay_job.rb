@@ -5,7 +5,7 @@ class MessageRelayJob < ApplicationJob
     c_user = User.find(current_user_id)
     ActionCable.server.broadcast "chatroom:#{message.chatroom.id}",
     {
-      message: MessagesController.render(message, locals: { incoming_message: message.user != c_user ? true : false }),
+      message: MessagesController.render(message, {incoming_message: message.user != c_user ? true : false }),
       chatroom_id: message.chatroom.id
     }
   end
