@@ -15,11 +15,6 @@
       <%= render 'shared/navbar'%>
     <% end %>
     <div class="container-fluid">
-      <div class="alerts text-center">
-        <% flash.each do |message_type, message_tag| %>
-          <div class="mt-4 alert alert-info %>"> <%= message_tag %></div>
-        <% end %>
-      </div>
       <%= yield %>
     </div>
   </body>

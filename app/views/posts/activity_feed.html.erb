@@ -3,6 +3,7 @@
     <%= render partial: 'shared/sidebar'%>
   </div>
   <div class="col-md-6">
+    <%= render 'shared/alerts'%>
     <% if @posts.count == 0 %>
       <p class="text-center mt-5">Follow users from explore page to view activity feed</p>
     <% else %>
