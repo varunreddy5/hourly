@@ -1,10 +1,14 @@
-<div class="row mt-5">
-  <div class="col-sm-6 offset-sm-3">
-    <div class="form-group">
+<div class="row developer-tools-page align-items-center justify-content-center" style="height:90vh;">
+  <div class="col-sm-6 col-md-4 devise-form text-center">
+    <div class="sign-in-content">
+      <p class="main-content">Developer Tools</p>
+      <p class="helper-content mt-4">Get token to access UFConnect's API</p>
+    </div>
+    <div class="form-group text-left">
       <label for="email">Email:</label>
       <input type="text" class="form-control" value = <%= current_user.email %> disabled="disabled">
     </div>
-    <%= link_to "Get Token", api_v1_auth_path(user: current_user), method: :post, remote: true, class: 'btn btn-outline-primary' %>
+    <%= link_to "Get Token", api_v1_auth_path(user: current_user), method: :post, remote: true, class: 'btn btn-block btn-primary signin-button' %>
     <div id="token">
     </div>
   </div>
