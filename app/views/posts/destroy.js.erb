@@ -1,2 +1,5 @@
+<% if defined? @shared_post %>
+  $('#post_share-<%= @shared_post.id %>').html("<%=j render partial: 'posts/post_share', locals: { post: @post } %>")
+<% end %>
 $("#post-count-<%=current_user.id %>").html("<%=j current_user.posts.count %>");
 $("#post-<%= @post.id%>").remove();
