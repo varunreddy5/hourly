@@ -1,1 +1,4 @@
 $('#post_share-<%= @post.id %>').html("<%=j render partial: 'posts/post_share', locals: { post: @post } %>")
+$('#tweetShareModal-<%=@post.id %>').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();

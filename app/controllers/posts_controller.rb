@@ -44,6 +44,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = current_user.posts.find(params[:id])
+    if @post.original_tweet_id
+      @shared_post = Post.find(@post.original_tweet_id)
+    end
     respond_to do |format|
       if @post.destroy
         format.html{ 
@@ -61,8 +64,9 @@ class PostsController < ApplicationController
   def share
     @post = Post.find(params[:id])
     @author = @post.user
-    @shared_post = current_user.posts.new(original_tweet_id: @post.id)
     
+    @shared_post = current_user.posts.new(post_params)
+    @shared_post.original_tweet_id = @post.id
     if @shared_post.save
       respond_to do |format|
         format.html{ 
