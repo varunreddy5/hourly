@@ -1,0 +1,34 @@
+{
+  "application.css": "/packs/css/application-230ba63c.css",
+  "application.js": "/packs/js/application-18b2f1607405e3e333c7.js",
+  "application.js.map": "/packs/js/application-18b2f1607405e3e333c7.js.map",
+  "controllers/reply_controller.js": "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js",
+  "controllers/reply_controller.js.map": "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js.map",
+  "entrypoints": {
+    "application": {
+      "css": [
+        "/packs/css/application-230ba63c.css"
+      ],
+      "js": [
+        "/packs/js/application-18b2f1607405e3e333c7.js"
+      ],
+      "js.map": [
+        "/packs/js/application-18b2f1607405e3e333c7.js.map"
+      ]
+    },
+    "controllers/reply_controller": {
+      "js": [
+        "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js"
+      ],
+      "js.map": [
+        "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js.map"
+      ]
+    }
+  },
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.eot": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-9720cc0c.eot",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.svg": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-7307389c.svg",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.ttf": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-ff33952a.ttf",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-baa3b51e.woff",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff2": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-78773521.woff2",
+  "media/images/background.jpg": "/packs/media/images/background-6d1a7de4.jpg"
+}
