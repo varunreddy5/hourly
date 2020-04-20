@@ -2,5 +2,5 @@
   <%= f.error_notification %>
   <%= f.input :body, placeholder: "Add a Comment!", label: false %>
   <%= f.input :parent_id, as: :hidden, input_html: { value: local_assigns[:parent_id]} %>
-  <%= f.button :submit,"Comment", class: "btn-primary comment-button" %>
+  <%= f.button :submit,"Comment", class: "btn-primary comment-button mb-3" %>
 <% end %>
