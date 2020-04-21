@@ -1,34 +1,30 @@
 {
-  "application.css": "/packs/css/application-230ba63c.css",
-  "application.js": "/packs/js/application-18b2f1607405e3e333c7.js",
-  "application.js.map": "/packs/js/application-18b2f1607405e3e333c7.js.map",
-  "controllers/reply_controller.js": "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js",
-  "controllers/reply_controller.js.map": "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js.map",
+  "application.js": "/packs/js/application-1c8d4b3213f383ef8520.js",
+  "application.js.map": "/packs/js/application-1c8d4b3213f383ef8520.js.map",
+  "controllers/reply_controller.js": "/packs/js/controllers/reply_controller-20f45d5af0d44afc6cf5.js",
+  "controllers/reply_controller.js.map": "/packs/js/controllers/reply_controller-20f45d5af0d44afc6cf5.js.map",
   "entrypoints": {
     "application": {
-      "css": [
-        "/packs/css/application-230ba63c.css"
-      ],
       "js": [
-        "/packs/js/application-18b2f1607405e3e333c7.js"
+        "/packs/js/application-1c8d4b3213f383ef8520.js"
       ],
       "js.map": [
-        "/packs/js/application-18b2f1607405e3e333c7.js.map"
+        "/packs/js/application-1c8d4b3213f383ef8520.js.map"
       ]
     },
     "controllers/reply_controller": {
       "js": [
-        "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js"
+        "/packs/js/controllers/reply_controller-20f45d5af0d44afc6cf5.js"
       ],
       "js.map": [
-        "/packs/js/controllers/reply_controller-11e5e573771a3f2e2a9d.js.map"
+        "/packs/js/controllers/reply_controller-20f45d5af0d44afc6cf5.js.map"
       ]
     }
   },
-  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.eot": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-9720cc0c.eot",
-  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.svg": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-7307389c.svg",
-  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.ttf": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-ff33952a.ttf",
-  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-baa3b51e.woff",
-  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff2": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-78773521.woff2",
-  "media/images/background.jpg": "/packs/media/images/background-6d1a7de4.jpg"
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.eot": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-4dd52e74.eot",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.svg": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-b419c8f4.svg",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.ttf": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-bf443939.ttf",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-a25b24ae.woff",
+  "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff2": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-d9506f36.woff2",
+  "media/images/background.jpg": "/packs/media/images/background-d2af7ab5.jpg"
 }

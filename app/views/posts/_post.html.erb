@@ -1,12 +1,12 @@
 <div class="col-md-12 post-body" id = "post-<%= post.id %>" data-controller="reply">
   <div class="card">
     <div class="card-body">
-      <% if post.original_tweet_id? %>
+      <% if original_tweet = post.original_tweet_id? %>
         <%= render partial: 'posts/share', locals: { post: post }%>
         <% post = post.original_tweet %>
       <% end %>
       <% if post != nil %>
-        <div class="original-post">
+        <div class="original-post <%= 'pl-4 pr-4 pt-2' if original_tweet %>">
           <div class="row">
             <%= render partial: 'posts/post_user_content', locals: { post: post } %>
           </div>

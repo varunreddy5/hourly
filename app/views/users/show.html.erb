@@ -20,9 +20,11 @@
     <div id="posts-user" class="posts">
       <%= render @posts %>
     </div>
-    <div class="mt-4">
-      <%= pagy_bootstrap_nav(@pagy).html_safe %>
-    </div>
+    <% if @posts.count > 10 %>
+      <div class="mt-4">
+        <%= pagy_bootstrap_nav(@pagy).html_safe %>
+      </div>
+    <% end%>
   </div>
   <div class="col-md-3"></div>
 </div>
