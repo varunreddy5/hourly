@@ -2,7 +2,7 @@
   <% if incoming_message %>
     <div class="col-md-6">
       <div class="message-row">
-        <div class="incoming_message" style="display: flex; justify-content: left">
+        <div class="incoming_message" >
           <span class="message-avatar"><%= user_avatar(message.user, 35) %></span>
           <span class="message-body"><%= message.body %></span>
         </div>
@@ -12,7 +12,7 @@
   <% else %>
     <div class="col-md-6 offset-6">
       <div class="message-row">
-        <div class="outgoing_message" style="display: flex; justify-content: right">
+        <div class="outgoing_message">
           <span class="message-body"><%= message.body %></span>
         </div>
         <div class="message-date-outgoing"><%= message.created_at.strftime("%d %b '%y, %I:%M %P") %></div>

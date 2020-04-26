@@ -11,7 +11,7 @@
         <% if users.count == 0%>
           <p>0 <%= label %></p>
         <% else %>
-          <%= render users %>
+          <%= render partial: 'users/show_users_follow', collection: users, as: :user %>
         <% end %>
       </div>
     </div>

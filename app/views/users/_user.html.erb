@@ -1,9 +1,6 @@
-<% @user = user%>
-<div class="col-md-12 usernames">
-  <%= link_to  user.name, user_path(@user) %>
-  <% if @user != current_user%>
-    <div id = "follow-unfollow-<%= @user.id %>" class="modal-button">
-      <%= render partial: 'follow_form', object: @user %>
-    </div>
+<span class="mention">
+  <%= link_to user, class: 'user-mention-link' do %>
+    <%# user_avatar(user, 20) %>
+    @<%= user.username %>
   <% end %>
-</div>
+</span>

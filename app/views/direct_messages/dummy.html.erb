@@ -49,3 +49,26 @@
     </div>
   <% end %>
 </div>
+<%# Latest %>
+<div class="row">
+  <% if incoming_message %>
+    <div class="col-md-6">
+      <div class="message-row">
+        <div class="incoming_message" >
+          <span class="message-avatar"><%= user_avatar(message.user, 35) %></span>
+          <span class="message-body"><%= message.body %></span>
+        </div>
+        <div class="message-date-incoming"><%= message.created_at.strftime("%d %b '%y, %I:%M %P") %></div>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-md-6 offset-6">
+      <div class="message-row">
+        <div class="outgoing_message">
+          <span class="message-body"><%= message.body %></span>
+        </div>
+        <div class="message-date-outgoing"><%= message.created_at.strftime("%d %b '%y, %I:%M %P") %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

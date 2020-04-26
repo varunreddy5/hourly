@@ -13,9 +13,9 @@ const chatrooms = consumer.subscriptions.create('ChatroomsChannel', {
     var active_chatroom = $(
       "[data-behavior='messages'][data-chatroom-id=" + data.chatroom_id + ']'
     );
-    console.log(active_chatroom, active_chatroom.length);
+    console.log(active_chatroom, active_chatroom.length, 'Final result');
     if (active_chatroom.length > 0) {
-      console.log('inside if', active_chatroom.length);
+      console.log('data chatroom id', data.chatroom_id);
       active_chatroom.append(data.message);
     } else {
       $(
@@ -24,11 +24,12 @@ const chatrooms = consumer.subscriptions.create('ChatroomsChannel', {
     }
   },
 
-  send_message: function (chatroom_id, message) {
+  send_message: function (chatroom_id, message, current_u) {
     console.log('inside send message function', chatroom_id, message);
     this.perform('send_message', {
       chatroom_id: chatroom_id,
       body: message,
+      current_u: current_u
     });
   },
 });
@@ -49,9 +50,9 @@ submit_messages = function () {
   $('#new_message').on('submit', function (e) {
     e.preventDefault();
     var chatroom_id = $("[data-behavior = 'messages']").data('chatroom-id');
+    var current_user = $("#current_user").text()
     var body = $('#message_body');
-    chatrooms.send_message(chatroom_id, body.val());
+    chatrooms.send_message(chatroom_id, body.val(), current_user);
     body.val('');
-    $('#messages-section').scrollTo(100);
   });
 };

@@ -1,5 +1,13 @@
 <%= simple_form_for @post, remote: true do |f| %>
   <%= f.error_notification %>
-  <%= f.rich_text_area :content, placeholder: "What's happening?" %>
-  <%= f.button :submit, "Create", class: "create-button btn-primary mt-4", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
-<% end %>
+  <%= f.rich_text_area :content, placeholder: "What's happening?", data: { controller: 'mentions', target: 'mentions.field'} %>
+  <%# f.input :category_ids, collection: Category.all.pluck(:name, :id), {}, label: 'Category', input_html: { class: "selectize-category", multiple: true } %>
+  <%# f.input :category_ids, label: "Category" do %>
+    <%# f.select :category_ids, Category.all.pluck(:name, :id), {}, include_blank: true, class: "selectize-category", multiple: true %>
+    <%# end %>
+    <%# f.input :tag_list, label: "Tags" %>
+    <%# f.input :tag_list, label: "Category" do %>
+      <%# f.select :tag_list, ActsAsTaggableOn::Tag.all, {}, include_blank: true, class: "selectize-category", multiple: true %>
+      <%# end %>
+      <%= f.button :submit, "Create", class: "create-button btn-primary mt-2", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
+    <% end %>

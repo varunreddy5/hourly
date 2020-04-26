@@ -1,11 +1,12 @@
 class MessageRelayJob < ApplicationJob
   queue_as :default
 
-  def perform(message, current_user_id)
-    c_user = User.find(current_user_id)
+  def perform(message, message_user, current_user)
+    # debugger
+    puts message_user, current_user
     ActionCable.server.broadcast "chatroom:#{message.chatroom.id}",
     {
-      message: MessagesController.render(message, {incoming_message: message.user != c_user ? true : false }),
+      message: MessagesController.render(message, locals: { incoming_message: message_user == current_user ? false : true }),
       chatroom_id: message.chatroom.id
     }
   end

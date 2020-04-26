@@ -10,21 +10,18 @@ application.load(definitionsFromContext(context));
 require('@rails/ujs').start();
 require('turbolinks').start();
 require('@rails/activestorage').start();
-
 require('channels');
 require('trix');
 require('@rails/actiontext');
-// require('jquery');
 require('jquery-ui');
 window.jQuery = window.$ = require('jquery');
+import { selectize } from './selectize';
 require('../notifications');
 require('../chatrooms');
-// require('../cable');
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/actiontext';
 import '../stylesheets/application';
-
 import '../stylesheets/posts';
 import '../stylesheets/users';
 import '../stylesheets/comments';
@@ -36,6 +33,7 @@ import '../stylesheets/direct_messages';
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
+  selectize();
   $('#_users_q').autocomplete({
     source: '/autocomplete',
     minlength: 2,
@@ -50,4 +48,6 @@ document.addEventListener('turbolinks:load', () => {
       location.href = '/direct_messages/' + ui.item.value;
     },
   });
+
+  
 });

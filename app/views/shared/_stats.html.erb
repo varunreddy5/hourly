@@ -36,7 +36,7 @@
   <% else %>
     <div id="follow-unfollow-<%= @user.id %>" class="follow-unfollow">
       <% if user_signed_in? %>
-        <%= render partial: 'follow_form', locals: {user: @user } %>
+        <%= render partial: 'users/follow_form', locals: {user: @user } %>
       <% end %>
     </div>
   <% end %>

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  include ActionText::Attachable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -17,15 +17,18 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :notifications, as: :recipient
+  has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
   searchkick word_start: [:username]
 
   has_many :chatroom_users
   has_many :chatrooms, through: :chatroom_users
-  has_many :messages
+  has_many :messages, dependent: :destroy
   
-
+  def to_trix_content_attachment_partial_path
+    to_partial_path
+  end
+  
   def to_param
     username
   end

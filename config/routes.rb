@@ -25,7 +25,7 @@
         post :share
       end
     end
-    
+    resources :mentions, only: [:index]
     resources :relationships, only: [:create, :destroy]
     resources :notifications do
       collection do

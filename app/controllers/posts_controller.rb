@@ -19,12 +19,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = current_user.posts.build(post_params)
-    @user = @posts.user
+    @post = current_user.posts.build(post_params)
+    @user = @post.user
     respond_to do |format|
-      if @posts.save
-        @posts.user.followers.each do |user|
-          Notification.create(recipient_id: user.id, user: current_user, action: "posted", notifiable: @posts)
+      if @post.save
+        @post.user.followers.each do |user|
+          Notification.create(recipient_id: user.id, user: current_user, action: "posted", notifiable: @post)
         end
         format.html{ 
           flash[:success] = "Posted Successfully!" 
