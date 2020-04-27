@@ -9,5 +9,5 @@
     <%# f.input :tag_list, label: "Category" do %>
       <%# f.select :tag_list, ActsAsTaggableOn::Tag.all, {}, include_blank: true, class: "selectize-category", multiple: true %>
       <%# end %>
-      <%= f.button :submit, "Create", class: "create-button btn-primary mt-2", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
+      <%= f.button :submit, "Create", class: "create-button btn-primary mt-3", data: { toggle: 'modal', 'target': '#tweetModal' }   %>
     <% end %>

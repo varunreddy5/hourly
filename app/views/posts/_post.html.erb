@@ -6,7 +6,7 @@
         <% post = post.original_tweet %>
       <% end %>
       <% if post != nil %>
-        <div class="original-post <%= 'pl-4 pr-4 pt-2' if original_tweet %>">
+        <div class="original-post <%= 'pl-4 pt-2' if original_tweet %>">
           <div class="row">
             <%= render partial: 'posts/post_user_content', locals: { post: post } %>
           </div>

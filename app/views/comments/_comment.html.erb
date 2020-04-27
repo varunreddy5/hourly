@@ -1,25 +1,32 @@
-<div id="comment_<%= comment.id %>">
+<div id="comment_<%= comment.id %>" class="pl-4">
   <hr>
   <% nesting = local_assigns.fetch(:nesting, 1)%>
   <% max_nesting = local_assigns[:max_nesting] %>
-  <div class="border-left pl-4 mt-2">
-    <span class="name" id="username"><strong><%= link_to  comment.user.name, user_path(comment.user) %></strong></span>
-    <span class="created-at float-right"><small><%= time_ago_in_words(comment.created_at) %> ago</small></span>
-    <p class="mt-2" id="comment-body"><%= comment.body %></p>
-    <div data-controller = 'reply'>
-      <%= link_to  "Reply", '#', data: { action: 'click->reply#show'} %>
-      <%= link_to "Delete", [comment.commentable, comment], method: :delete, remote: true, class:"ml-4", data: { confirm: "Are you sure?" } if comment.user == current_user%>
-      <div class="col-md-12 mt-3">
-        <%= render partial: "comments/form", locals: { 
+  <%= render partial: 'users/user_content', locals: { user: comment.user, time: comment.created_at }%>
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-11">
+      <div id="comment-body" class="ml-2 comment-body"><%= comment.body %></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+      <div data-controller = 'reply' class="ml-2">
+        <%= link_to  "Reply", '#', data: { action: 'click->reply#show'}, class: "reply-link" %>
+        <%= link_to "Delete", [comment.commentable, comment], method: :delete, remote: true, class:"ml-5 delete-link", data: { confirm: "Are you sure?" } if comment.user == current_user %>
+        <div class="col-md-12 mt-3">
+          <%= render partial: "comments/form", locals: { 
         commentable: comment.commentable, 
         parent_id:  (max_nesting.blank? || nesting < max_nesting) ? comment.id : comment.parent_id, 
         class: "d-none", 
         target: 'reply.form' 
         } %>
+        </div>
       </div>
+      <%= tag.div  id: "#{dom_id(comment)}_comments" do %>
+        <%= render comment.comments, nesting: nesting + 1, max_nesting: local_assigns[:max_nesting] %>
+      <% end %>
     </div>
-    <%= tag.div  id: "#{dom_id(comment)}_comments" do %>
-      <%= render comment.comments, nesting: nesting + 1, max_nesting: local_assigns[:max_nesting] %>
-    <% end %>
   </div>
 </div>

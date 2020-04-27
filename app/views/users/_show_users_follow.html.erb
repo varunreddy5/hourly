@@ -1,9 +1,17 @@
 <% @user = user%>
-<div class="col-md-12 usernames">
-  <%= link_to  user.name, user_path(@user) %>
-  <% if @user != current_user %>
-    <div id = "follow-unfollow-<%= @user.id %>" class="modal-button">
-      <%= render partial: 'users/follow_form', object: @user %>
-    </div>
-  <% end %>
+<div class="row mb-4 pl-3 pr-3">
+  <div class="col-md-2">
+    <%= user_avatar(@user, 40) %>
+  </div>
+  <div class="col-md-6 text-left">
+    <span class="modal-name"><%= @user.name %></span>
+  </div>
+  <div class="col-md-4">
+    <%# link_to  user.name, user_path(@user), class: "modal-username" %>
+    <% if @user != current_user %>
+      <div id = "follow-unfollow-<%= @user.id %>" class="modal-button">
+        <%= render partial: 'users/follow_form', object: @user %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,3 +1,3 @@
 <%= simple_form_for current_user.active_relationships.find_by(followed_id: @user.id),remote: true, method: :delete do |f| %>
-  <%= f.button :submit, "Unfollow", class: "btn-outline-primary"%>
+  <%= f.button :submit, "Unfollow", class: "btn-primary unfollow-button"%>
 <% end %>

@@ -25,6 +25,12 @@
                 autofocus: true,
                 label:false,
                 placeholder: 'Username' %>
+        <%= f.input :current_position,
+                required: true,
+                autofocus: true,
+                placeholder: 'Current Position',
+                input_html: { autocomplete: "Current Position" },
+                label: false %>
         <%= f.input :email, required: true, autofocus: true,label:false %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

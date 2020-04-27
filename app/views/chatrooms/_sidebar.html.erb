@@ -7,7 +7,7 @@
       <% if current_user.following_count == 0 %>
         <p>Please follow users to message them.</p>
       <% else %>
-        <% current_user.following.each do |user| %>
+        <% User.all.each do |user| %>
           <%= render partial:'users/user_info', locals: { user: user } %>
         <% end %>
       <% end %>

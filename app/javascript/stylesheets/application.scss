@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '@fortawesome/fontawesome-free';
+@import './variables';
 body,
 html {
   height: 100%;
@@ -113,18 +114,17 @@ html {
   height: 1.25rem;
   border: none;
 }
-.notifications,
-.navbar-username,
-.user-avatar-dropdown,
-.navbar-messages,
-a.nav-link.login,
-a.nav-link.sign-up {
-  color: hsl(194, 23%, 92%) !important;
-  .nav-link:hover,
-  .nav-link:active {
-    color: hsl(194, 23%, 80%) !important;
-  }
-}
+// .notifications,
+// .navbar-username,
+// .user-avatar-dropdown,
+// .navbar-messages,
+// a.nav-link.login,
+// a.nav-link.sign-up {
+//   color: $navbar-primary !important;
+//   .nav-link:hover {
+//     color: $navbar-hover !important;
+//   }
+// }
 .comment-icon,
 .delete-icon,
 .share-icon,
@@ -136,7 +136,7 @@ a.nav-link.sign-up {
 .logout-icon,
 .developer-icon,
 .user-icon {
-  color: rgb(136, 153, 166);
+  color: $body-icons;
 }
 .shared-icon {
   color: rgb(23, 191, 99) !important;
@@ -156,32 +156,52 @@ a.nav-link.sign-up {
   margin-top: -4px;
 }
 .navbar-light {
-  // background-color: hsl(194, 22%, 35%) !important;
-  background-color: #2d3748 !important;
+  background-color: $navbar-background-color !important;
   .navbar-brand {
-    color: white;
+    color: $navbar-primary;
+    &:hover {
+      color: $navbar-hover;
+    }
   }
-  .navbar-nav .nav-link {
-    color: white;
+  // .navbar-nav .nav-link {
+  //   &:hover,
+  //   &:focus {
+  //     color: $navbar-hover;
+  //   }
+  // }
+  // .navbar-nav {
+  //   .active {
+  //     color: $navbar-primary;
+  //   }
+  // }
+  .nav-item > .nav-link.active {
+    color: $navbar-primary;
+  }
+  .nav-item > .nav-link,
+  .nav-item > .nav-link:focus {
+    color: $navbar-hover;
+    &:hover {
+      color: $navbar-primary;
+    }
   }
   .search {
-    width: 550px !important;
-    background-color: hsl(194, 23%, 92%);
+    width: 560px !important;
+    background-color: $navbar-primary;
     border: none;
-    border-radius: 4px;
-    // color: hsl(194, 8%, 56%); // icon color
+    border-radius: $border-radius;
   }
-  .navbar-user-avatar,
-  .navbar-messages {
-    padding: 0 0.5rem;
-    // border-left: 2px solid;
+  .navbar-user-avatar {
+    .navbar-avatar {
+      .user-avatar {
+        margin-top: -5px;
+      }
+    }
   }
 }
 
 .navbar-label {
   font-size: 16px;
   margin-left: 5px;
-  // color: #606f7b;
 }
 
 /************************** End of Navbar *************************/
@@ -191,13 +211,13 @@ a.nav-link.sign-up {
   padding-bottom: 0rem !important;
 }
 .posts {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 4px;
-  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
+  border: $border;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
 }
 
 .post-body {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: $border;
 }
 .user-avatar {
   max-width: 50px;
@@ -207,8 +227,9 @@ a.nav-link.sign-up {
   border: 0px !important;
   border-radius: 0px !important;
 }
-.post-content {
-  color: #606f7b;
+.post-content,
+.comment-body {
+  color: $secondary-color;
   font-size: 16px;
   line-height: 1.5rem;
   padding: 10px 0 10px 0;
@@ -216,18 +237,18 @@ a.nav-link.sign-up {
 
 .user-content {
   .name a {
-    color: #22292f;
+    color: $primary-color;
     font-weight: 600;
   }
   .username {
-    color: #8795a1;
+    color: $tertiary-color;
     font-size: 14px;
   }
 }
 
 .tweet {
   button {
-    background-color: #4299e1 !important;
+    background-color: $button-color !important;
     border: none;
     // margin-top: 10px;
   }
@@ -236,7 +257,7 @@ a.nav-link.sign-up {
   margin-bottom: 1rem;
 }
 .create-button {
-  background-color: #4299e1 !important;
+  background-color: $button-color !important;
   border: none;
 }
 
@@ -253,7 +274,6 @@ a.nav-link.sign-up {
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  color: #4e616c;
 }
 .right-nav {
   margin-right: 8em;

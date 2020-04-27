@@ -1,40 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-background">
-  <%= link_to  "UFConnect", posts_path, class: "navbar-brand" %>
+  <%= link_to  "UFConnect", '/activity_feed', class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Activity Feed', '/activity_feed', class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Explore', posts_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
     <% if user_signed_in? %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'Activity Feed', '/activity_feed', class: current_page?(activity_feed_path) ? 'nav-link active' : 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Explore', posts_path, class: current_page?(posts_path) ? 'nav-link active' : 'nav-link' %>
+        </li>
+      </ul>
       <%= simple_form_for users_path, html: { class: "form-inline"}, method: :get do |f| %>
         <%= f.input :q, as: :search,  placeholder: "Search Users", label: false %>
       <% end %>
       <ul class="navbar-nav ml-auto right-nav">
         <li class="nav-item dropdown notifications" data-behavior = "notifications">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-behavior="notifications-link">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="bell-icon"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg> <span data-behavior="unread-count"></span>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="bell-icon"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg> <span data-behavior="unread-count">0</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-behavior="notification-items">
           </div>
         </li>
         <li class="nav-item navbar-messages">
-          <%= link_to direct_messages_path, class: "nav-link " do %>
+          <%= link_to direct_messages_path, class: current_page?(direct_messages_path) ? 'nav-link active' : 'nav-link' do %>
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="inbox-icon"><path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
             <span class="navbar-label">Messages</span>
           <% end %>
         </li>
         <li class="nav-item dropdown navbar-user-avatar">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= user_avatar(current_user, 25) %>
+          <a class="<%= current_page?(current_user) ? 'nav-link active' : 'nav-link'%>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %>
+            <span class="navbar-avatar ml-2"><%= user_avatar(current_user, 25) %></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to current_user, class: "dropdown-item" do %>

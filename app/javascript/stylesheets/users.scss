@@ -1,3 +1,4 @@
+@import './variables';
 .stats {
   text-align: center;
   .following-count,
@@ -40,11 +41,19 @@
 .usernames {
   margin-bottom: 40px;
 }
-
-
-
-// .dm-user-info {
-//   border: 1px solid rgba(0, 0, 0, 0.125);
-//   border-radius: 4px;
-//   box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.08);
-// }
+.follow-button,
+.unfollow-button {
+  background-color: $button-color !important;
+  border: none;
+}
+.modal-sm {
+  min-width: 500px !important;
+  .modal-name {
+    color: $primary-color;
+    font-size: 19px;
+  }
+  // .modal-username {
+  //   color: $tertiary-color;
+  //   font-size: 13px;
+  // }
+}

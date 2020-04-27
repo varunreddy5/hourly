@@ -33,6 +33,7 @@ import '../stylesheets/direct_messages';
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
+
   selectize();
   $('#_users_q').autocomplete({
     source: '/autocomplete',
@@ -48,6 +49,4 @@ document.addEventListener('turbolinks:load', () => {
       location.href = '/direct_messages/' + ui.item.value;
     },
   });
-
-  
 });

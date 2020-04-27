@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase}
   validates_presence_of :username
+  validates_presence_of :current_position
   validates_uniqueness_of :username
   has_one_attached :avatar
  
@@ -25,10 +26,6 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages, dependent: :destroy
   
-  def to_trix_content_attachment_partial_path
-    to_partial_path
-  end
-  
   def to_param
     username
   end
@@ -45,4 +42,8 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def to_trix_content_attachment_partial_path
+    to_partial_path
+  end
+  
 end

@@ -6,14 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: "foobar", email: "foobar@example.com", username: 'foobar', password: "varun2@7", password_confirmation: "varun2@7")
+User.create!(name: "foobar", email: "foobar@example.com", username: 'foobar',current_position: "Software Developer at Google", password: "varun2@7", password_confirmation: "varun2@7")
 
+companies = ["Google", "Facebook", "Amazon", "GitHub", "Apple"]
 49.times do |n|
   name = Faker::Name.name
   email = "user-#{n+1}@example.com"
   password = "password"
-  User.create!(name: name, email: email, username:"user-#{n+1}" ,password: password, password_confirmation: password)
+  User.create!(name: name, email: email, username:"user-#{n+1}", current_position: "Software Developer at #{companies[n%companies.count]}" ,password: password, password_confirmation: password)
 end
+
 
 users = User.all
 50.times do |p|

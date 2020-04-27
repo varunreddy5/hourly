@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-1">
+    <%= link_to user_path(user) do %>
+      <%= user_avatar(user, 45)%>
+    <% end %>
+  </div>
+  <div class="col-md-11">
+    <div class="user-content ml-2">
+      <span class="name"><%= link_to  user.name, user_path(user) %></span>
+      <% if defined?(time) %>
+        <span class="created-at float-right"><small><%= time_ago_in_words(time) %> ago</small></span>
+      <% end %>
+      <br>
+      <span class="username"><%= user.username %></span>
+    </div>
+  </div>
+</div>

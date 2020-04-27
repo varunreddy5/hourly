@@ -1,3 +1,4 @@
+@import './variables';
 .modal-post {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 4px;
@@ -11,4 +12,13 @@
 }
 .post_category_ids {
   margin-top: 20px;
+}
+.reply-link,
+.delete-link {
+  color: $tertiary-color;
+  font-weight: 600;
+  font-size: 15px;
+  &:hover {
+    color: $secondary-color;
+  }
 }

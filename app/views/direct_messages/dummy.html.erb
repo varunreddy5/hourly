@@ -72,3 +72,28 @@
     </div>
   <% end %>
 </div>
+<%# Sidebar %>
+<div class="col-md-3 chatrooms-sidebar text-center">
+  <div class="chatroom-users">
+    <div class="chatrooms-search">
+      <%= render partial: 'form'%>
+    </div>
+    <div class="dm-users">
+      <% if current_user.following_count == 0 %>
+        <p>Please follow users to message them.</p>
+      <% else %>
+        <% current_user.following.each do |user| %>
+          <%= render partial:'users/user_info', locals: { user: user } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%# Index Page %>
+<div class="row  d-flex h-100">
+  <%= render partial: "chatrooms/sidebar" %>
+  <div class="col-md-6 offset-md-3 justify-content-center align-self-center">
+    <h5>Please select the user.</h5>
+  </div>
+  <div class="col-md-3"></div>
+</div>
