@@ -32,3 +32,5 @@ following.each { |followed| user.follow(followed) }
 
 
 
+
+
