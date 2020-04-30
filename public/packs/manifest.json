@@ -1,49 +1,59 @@
 {
-  "application.js": "/packs/js/application-fdbf003c8c89e03a3410.js",
-  "application.js.map": "/packs/js/application-fdbf003c8c89e03a3410.js.map",
-  "controllers/mentions_controller.js": "/packs/js/controllers/mentions_controller-e355577c63333a7f8134.js",
-  "controllers/mentions_controller.js.map": "/packs/js/controllers/mentions_controller-e355577c63333a7f8134.js.map",
-  "controllers/reply_controller.js": "/packs/js/controllers/reply_controller-667d9a343a78d2ee89e8.js",
-  "controllers/reply_controller.js.map": "/packs/js/controllers/reply_controller-667d9a343a78d2ee89e8.js.map",
+  "application.js": "/packs/js/application-d8ed9c767ccc8c50ef1f.js",
+  "application.js.map": "/packs/js/application-d8ed9c767ccc8c50ef1f.js.map",
+  "controllers/mentions_controller.js": "/packs/js/controllers/mentions_controller-3681af84ed305f78dee0.js",
+  "controllers/mentions_controller.js.map": "/packs/js/controllers/mentions_controller-3681af84ed305f78dee0.js.map",
+  "controllers/reply_controller.js": "/packs/js/controllers/reply_controller-74f1c25084862fca1989.js",
+  "controllers/reply_controller.js.map": "/packs/js/controllers/reply_controller-74f1c25084862fca1989.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-fdbf003c8c89e03a3410.js"
+        "/packs/js/application-d8ed9c767ccc8c50ef1f.js"
       ],
       "js.map": [
-        "/packs/js/application-fdbf003c8c89e03a3410.js.map"
+        "/packs/js/application-d8ed9c767ccc8c50ef1f.js.map"
       ]
     },
     "controllers/mentions_controller": {
       "js": [
-        "/packs/js/controllers/mentions_controller-e355577c63333a7f8134.js"
+        "/packs/js/controllers/mentions_controller-3681af84ed305f78dee0.js"
       ],
       "js.map": [
-        "/packs/js/controllers/mentions_controller-e355577c63333a7f8134.js.map"
+        "/packs/js/controllers/mentions_controller-3681af84ed305f78dee0.js.map"
       ]
     },
     "controllers/reply_controller": {
       "js": [
-        "/packs/js/controllers/reply_controller-667d9a343a78d2ee89e8.js"
+        "/packs/js/controllers/reply_controller-74f1c25084862fca1989.js"
       ],
       "js.map": [
-        "/packs/js/controllers/reply_controller-667d9a343a78d2ee89e8.js.map"
+        "/packs/js/controllers/reply_controller-74f1c25084862fca1989.js.map"
+      ]
+    },
+    "hello_coffee": {
+      "js": [
+        "/packs/js/hello_coffee-0092e1c1bcaf5036f465.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_coffee-0092e1c1bcaf5036f465.js.map"
       ]
     },
     "selectize": {
       "js": [
-        "/packs/js/selectize-8f07e860c9c29602afbd.js"
+        "/packs/js/selectize-2f0e31ebc8a15a042cee.js"
       ],
       "js.map": [
-        "/packs/js/selectize-8f07e860c9c29602afbd.js.map"
+        "/packs/js/selectize-2f0e31ebc8a15a042cee.js.map"
       ]
     }
   },
+  "hello_coffee.js": "/packs/js/hello_coffee-0092e1c1bcaf5036f465.js",
+  "hello_coffee.js.map": "/packs/js/hello_coffee-0092e1c1bcaf5036f465.js.map",
   "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.eot": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-4dd52e74.eot",
   "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.svg": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-b419c8f4.svg",
   "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.ttf": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-bf443939.ttf",
   "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-a25b24ae.woff",
   "media/fira-sans-v10-latin/fira-sans-v10-latin-regular.woff2": "/packs/media/fira-sans-v10-latin/fira-sans-v10-latin-regular-d9506f36.woff2",
-  "selectize.js": "/packs/js/selectize-8f07e860c9c29602afbd.js",
-  "selectize.js.map": "/packs/js/selectize-8f07e860c9c29602afbd.js.map"
+  "selectize.js": "/packs/js/selectize-2f0e31ebc8a15a042cee.js",
+  "selectize.js.map": "/packs/js/selectize-2f0e31ebc8a15a042cee.js.map"
 }

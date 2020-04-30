@@ -1,0 +1,4 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=varun2@7
+POSTGRES_DB=hourly_development
+POSTGRES_DB_TEST=hourly_test

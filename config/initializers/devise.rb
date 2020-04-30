@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '2ba531bf1d935882ce119de48deb750aebdd9104207cee39e054a7835b3b41f0997b7274793d1bec981409c1db8c4d33460acbad94cbebc76eda496850322841'
+  # config.secret_key = 'b708edf2222b981c0e016c52441540dc06a9085612e7c9f36db8b3d1bc784fbfe6c1723c413588e1bd8656d3c2e087b1dd0ed3ff2516887cc3dfbbc2ca7a5132'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '2d3969bb7b6b8c83dc0f58f97add9bf375aaea6896d99317f75f12db65911823404c287f95c408f743c5670c99695ac00ce62efb4295e13384bd8fee36ca6632'
+  # config.pepper = 'a15901e6ec4d3c271868878222662cd5caf7c6b5752de8a0cbb31fd5f73a79fcfa3fbe0fa126ef9d522fe8e29724b617b0167ea650567907144d2befb0b5b0f8'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -260,9 +260,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  # config.omniauth :facebook, Rails.application.credentials.development[:facebook_app_id], Rails.application.credentials.development[:facebook_app_secret], scope: 'email, user_posts'
-  # config.omniauth :github, Rails.application.credentials.development[:github_app_id], Rails.application.credentials.development[:github_app_secret], scope: 'user'
-  # config.omniauth :twitter, Rails.application.credentials.development[:twitter_app_id], Rails.application.credentials.development[:twitter_app_secret]
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

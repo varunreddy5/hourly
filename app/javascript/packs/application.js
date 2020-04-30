@@ -18,10 +18,11 @@ window.jQuery = window.$ = require('jquery');
 import { selectize } from './selectize';
 require('../notifications');
 require('../chatrooms');
+
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
-import '../stylesheets/actiontext';
-import '../stylesheets/application';
+import '../stylesheets/actiontext.scss';
+import '../stylesheets/application.scss';
 import '../stylesheets/posts';
 import '../stylesheets/users';
 import '../stylesheets/comments';
