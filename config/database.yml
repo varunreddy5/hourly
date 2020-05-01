@@ -23,15 +23,11 @@ default: &default
 
 development:
   <<: *default
+  # database: hourly_development
   database: <%= ENV["POSTGRES_DB"] %>
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
   host: <%= ENV["DATABASE_HOST"] %>
-
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

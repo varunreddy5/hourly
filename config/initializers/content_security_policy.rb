@@ -46,3 +46,8 @@ Rails.application.config.content_security_policy do |p|
   # Specify URI for violation reports
   # p.report_uri "/csp-violation-report-endpoint"
 end
+
+# Rails.application.config.content_security_policy do |policy|
+#   # Allow webpack-dev-server connections
+#   policy.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035', 'http://0.0.0.0:3035', 'ws://0.0.0.0:3035' if Rails.env.development?
+# end

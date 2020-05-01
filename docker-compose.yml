@@ -1,5 +1,18 @@
 version: '3'
 services:
+  webpacker:
+    build: .
+    command: bash -c "rm -rf /usr/src/app/public/packs; /usr/src/app/bin/webpack-dev-server"
+    ports:
+      - '3035:3035'
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+
   web:
     build: .
     ports:
@@ -9,26 +22,16 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
-    # environment:
-    #   - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
     depends_on:
-      - webpack_dev_server
-
-  webpack_dev_server:
-    build: .
-    command: bash -c "rm -rf /usr/src/app/public/packs; /usr/src/app/bin/webpack-dev-server"
-    ports:
-      - 3035:3035
-    volumes:
-      - .:/usr/src/app
-    env_file:
-      - .env/development/database
-      - .env/development/web
-    # environment:
-    #   - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - webpacker
+      - database
+      - redis
 
   redis:
     image: redis
+    command: ['redis-server', '--bind', 'redis', '--port', '6379']
 
   database:
     image: postgres
