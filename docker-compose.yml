@@ -22,16 +22,27 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
+      - .env/development/elasticsearch
     environment:
       - WEBPACKER_DEV_SERVER_HOST=webpacker
     depends_on:
       - webpacker
       - database
       - redis
+      - elasticsearch
 
   redis:
     image: redis
     command: ['redis-server', '--bind', 'redis', '--port', '6379']
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    environment:
+      - discovery.type=single-node
+    ports:
+      - '9200:9200'
+    env_file:
+      - .env/development/elasticsearch
 
   database:
     image: postgres
