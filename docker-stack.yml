@@ -1,0 +1,55 @@
+version: '3'
+services:
+  web:
+    image: varunreddy1061/alumniconnect_web:prod
+    ports:
+      - '80:3000'
+    env_file:
+      - .env/production/database
+      - .env/production/web
+      - .env/production/elasticsearch
+    depends_on:
+      - database
+      - redis
+      - elasticsearch
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    # command: ['redis-server', '--bind', 'redis', '--port', '6379']
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    environment:
+      - discovery.type=single-node
+    ports:
+      - '9200:9200'
+    env_file:
+      - .env/production/elasticsearch
+
+  database:
+    image: postgres
+    env_file:
+      - .env/production/database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  db-migrator:
+    image: varunreddy1061/alumniconnect_web:prod
+    command:
+      [
+        './wait-for',
+        '--timeout=300',
+        'database:5432',
+        '--',
+        'bin/rails',
+        'db:migrate',
+      ]
+    env_file:
+      - .env/production/database
+      - .env/production/web
+    deploy:
+      restart_policy:
+        condition: none
+volumes:
+  db_data:
