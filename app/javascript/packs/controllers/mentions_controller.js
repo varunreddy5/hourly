@@ -41,7 +41,7 @@ export default class extends Controller {
 
   _pasteHtml(html, startPos, endPos) {
     let position = this.editor.getPosition();
-    this.editor.setSelectedRange([position - endPos, position]);
+    this.editor.setSelectedRange([position - endPos + startPos, position + 1]);
     this.editor.deleteInDirection('backward');
   }
 }

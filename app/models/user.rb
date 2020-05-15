@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase}
   validates_presence_of :username
-  validates_presence_of :current_position
+  # validates_presence_of :current_position
   validates_uniqueness_of :username
   has_one_attached :avatar
  
@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
+  
   searchkick word_start: [:username]
 
   has_many :chatroom_users

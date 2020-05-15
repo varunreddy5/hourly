@@ -31,7 +31,7 @@
                 placeholder: 'Current Position',
                 input_html: { autocomplete: "Current Position" },
                 label: false %>
-        <%= f.input :email, required: true, autofocus: true,label:false %>
+        <%= f.input :email, required: true, autofocus: true,label:false, disabled: if current_user.services.where(provider: "github").present? then true else false end %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
@@ -47,11 +47,12 @@
                 label:false,
                 placeholder: 'New Password Confirmation' %>
         <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "we need your current password if you haven't logged in with GitHub to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" },
                 label:false,
-                placeholder: 'Current Password' %>
+                placeholder: 'Current Password',
+                input_html: { value: current_user.password } %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Save Changes", class: 'btn btn-block btn-primary signin-button' %>

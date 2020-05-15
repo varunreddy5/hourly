@@ -53,7 +53,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         email: auth.info.email, 
         name: auth.info.name,
         username: auth.info.nickname,
-        password: Devise.friendly_token[0, 20]
+        password: Devise.friendly_token[0, 20],
+        current_position: "Current position not updated"
       )
       if !@user.save
         flash[:alert] = "Your email or username of your #{auth.provider} account is not accessible. Please choose a different login method"

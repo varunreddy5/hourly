@@ -11,9 +11,9 @@
 # companies = ["Google", "Facebook", "Amazon", "GitHub", "Apple"]
 # 49.times do |n|
 #   name = Faker::Name.name
-#   email = "user-#{n+1}@example.com"
+#   email = "user-#{n+1}@alumniconnect.com"
 #   password = "password"
-#   User.create!(name: name, email: email, username:"user-#{n+1}", current_position: "Software Developer at #{companies[n%companies.count]}" ,password: password, password_confirmation: password)
+#   User.create!(name: name, email: email, username:"user-#{n+20}", current_position: "Software Developer at #{companies[n%companies.count]}" ,password: password, password_confirmation: password)
 # end
 
 
